@@ -82,7 +82,7 @@ jobs:
       - name: .NET 8 installed consumer
         env:
           NUGET_PACKAGES: ${{ github.workspace }}/artifacts/consumers/nuget-cache
-        run: dotnet run --project artifacts/consumers/dotnet/Consumer.csproj -p:TargetFramework=net8.0 -- artifacts/conformance.json
+        run: dotnet run --project artifacts/consumers/dotnet/Consumer.csproj --framework net8.0 -- artifacts/conformance.json
       - name: Stage current native payloads for portable assembly
         run: python scripts/stage-ci.py
       - uses: actions/upload-artifact@v4
@@ -164,4 +164,4 @@ jobs:
       - name: Final NuGet on .NET 8
         env:
           NUGET_PACKAGES: ${{ github.workspace }}/artifacts/consumers/nuget-cache
-        run: dotnet run --project artifacts/consumers/dotnet/Consumer.csproj -p:TargetFramework=net8.0 -- artifacts/conformance.json
+        run: dotnet run --project artifacts/consumers/dotnet/Consumer.csproj --framework net8.0 -- artifacts/conformance.json
