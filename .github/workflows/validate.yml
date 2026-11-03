@@ -80,6 +80,8 @@ jobs:
           artifacts/py310/bin/python -m pip install --no-index artifacts/packages/*.whl
           artifacts/py310/bin/python scripts/test-python.py
       - name: .NET 8 installed consumer
+        env:
+          NUGET_PACKAGES: ${{ github.workspace }}/artifacts/consumers/nuget-cache
         run: dotnet run --project artifacts/consumers/dotnet/Consumer.csproj -p:TargetFramework=net8.0 -- artifacts/conformance.json
       - name: Stage current native payloads for portable assembly
         run: python scripts/stage-ci.py
@@ -88,3 +90,78 @@ jobs:
           name: native-${{ matrix.expected }}
           path: artifacts/ci/
           if-no-files-found: error
+
+  assemble:
+    needs: native
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: native-*
+          path: artifacts/download
+      - name: Assemble only verified same-commit payloads
+        run: python3 scripts/assemble-release.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-candidate
+          path: artifacts/release/
+          if-no-files-found: error
+  final-consumers:
+    needs: assemble
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15, ubuntu-22.04]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+      - name: Install pinned Rust
+        run: rustup toolchain install 1.83.0 --profile minimal --no-self-update && rustup default 1.83.0
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-candidate
+          path: artifacts/packages
+      - name: Generate same-contract native fixtures and test final packages
+        run: |
+          cargo build --release --locked -p sevenmlabs-numerology-cli
+          python scripts/make-conformance.py
+          python scripts/verify-packages.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Final npm archive on Node 18
+        env:
+          NUMEROLOGY_NODE_PACKAGE: ${{ github.workspace }}/artifacts/consumers/node/node_modules/@7mlabs/numerology
+        run: node scripts/test-node.cjs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Final wheel on Python 3.10
+        env:
+          NUMEROLOGY_INSTALLED_PACKAGE: '1'
+        run: |
+          python scripts/verify-wheel.py
+      - name: Final NuGet on .NET 8
+        env:
+          NUGET_PACKAGES: ${{ github.workspace }}/artifacts/consumers/nuget-cache
+        run: dotnet run --project artifacts/consumers/dotnet/Consumer.csproj -p:TargetFramework=net8.0 -- artifacts/conformance.json
