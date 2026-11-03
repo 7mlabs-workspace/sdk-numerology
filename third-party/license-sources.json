@@ -1,0 +1,27 @@
+{
+  "napi": {
+    "version": "2.16.17",
+    "licenseFile": "third-party/napi-rs/f2178312d0e3e07beecc19836b91716a229107d3/LICENSE",
+    "source": "https://raw.githubusercontent.com/napi-rs/napi-rs/f2178312d0e3e07beecc19836b91716a229107d3/LICENSE"
+  },
+  "napi-build": {
+    "version": "2.1.3",
+    "licenseFile": "third-party/napi-rs/7999475f768fe6ebb306479ecf95f8439c4c3964/LICENSE",
+    "source": "https://raw.githubusercontent.com/napi-rs/napi-rs/7999475f768fe6ebb306479ecf95f8439c4c3964/LICENSE"
+  },
+  "napi-derive": {
+    "version": "2.16.13",
+    "licenseFile": "third-party/napi-rs/a312b7eb4e12d3e0a3e9770429ee05c333947a39/LICENSE",
+    "source": "https://raw.githubusercontent.com/napi-rs/napi-rs/a312b7eb4e12d3e0a3e9770429ee05c333947a39/LICENSE"
+  },
+  "napi-derive-backend": {
+    "version": "1.0.75",
+    "licenseFile": "third-party/napi-rs/a312b7eb4e12d3e0a3e9770429ee05c333947a39/LICENSE",
+    "source": "https://raw.githubusercontent.com/napi-rs/napi-rs/a312b7eb4e12d3e0a3e9770429ee05c333947a39/LICENSE"
+  },
+  "napi-sys": {
+    "version": "2.4.0",
+    "licenseFile": "third-party/napi-rs/f1b8ab5e645e674df33c796ef75aa278cd1b4a31/LICENSE",
+    "source": "https://raw.githubusercontent.com/napi-rs/napi-rs/f1b8ab5e645e674df33c796ef75aa278cd1b4a31/LICENSE"
+  }
+}

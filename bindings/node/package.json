@@ -1,0 +1,36 @@
+{
+  "name": "@7mlabs/numerology",
+  "version": "1.0.0",
+  "description": "Offline Pythagorean numerology SDK powered by a shared Rust core.",
+  "main": "index.cjs",
+  "types": "index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "author": "7mlabs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/7mlabs-workspace/sdk-numerology.git"
+  },
+  "files": [
+    "index.cjs",
+    "index.d.ts",
+    "native/",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.txt",
+    "README.md"
+  ],
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "cpu": [
+    "arm64",
+    "x64"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": true
+}

@@ -1,0 +1,21 @@
+[workspace]
+members = ["crates/numerology-core", "crates/numerology-ffi", "crates/numerology-node", "crates/numerology-cli"]
+resolver = "2"
+[workspace.package]
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.83"
+license = "MIT"
+repository = "https://github.com/7mlabs-workspace/sdk-numerology"
+[workspace.dependencies]
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.109"
+unicode-normalization = "=0.1.23"
+numerology-core = { package = "sevenmlabs-numerology-core", path = "crates/numerology-core" }
+[profile.dev]
+debug = 0
+incremental = false
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1

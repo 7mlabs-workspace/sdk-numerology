@@ -1,0 +1,90 @@
+name: Validate Pythagorean SDK
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            expected: darwin-arm64
+          - os: ubuntu-22.04
+            expected: linux-x64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+      - name: Install pinned Rust
+        run: rustup toolchain install 1.83.0 --profile minimal --component rustfmt --component clippy --no-self-update && rustup default 1.83.0
+      - name: Rust formatting, lint and arithmetic/regression tests
+        run: |
+          cargo fmt --all --check
+          cargo clippy --workspace --all-targets --locked -- -D warnings
+          cargo test --workspace --locked
+      - name: Build native host and notices
+        run: |
+          python scripts/collect-notices.py
+          python scripts/build-native.py
+          python scripts/make-conformance.py
+      - name: Verify TypeScript contracts and native consumers
+        run: |
+          npm ci --prefix tools --ignore-scripts --no-audit --no-fund
+          node tools/node_modules/typescript/lib/tsc.js --strict --noEmit --target ES2020 --module Node16 --moduleResolution Node16 tests/typescript/consumer.ts
+          node scripts/test-node.cjs
+          python scripts/test-python.py
+          dotnet run --project tests/dotnet/Consumer.csproj -- artifacts/conformance.json
+      - name: Build host package candidates
+        run: |
+          python -m pip install -r tools/build-requirements.txt
+          python scripts/package-host.py
+      - name: Verify real installed packages
+        run: python scripts/verify-packages.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Node 18 installed consumer
+        env:
+          NUMEROLOGY_NODE_PACKAGE: ${{ github.workspace }}/artifacts/consumers/node/node_modules/@7mlabs/numerology
+        run: node scripts/test-node.cjs
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Node 22 installed consumer
+        env:
+          NUMEROLOGY_NODE_PACKAGE: ${{ github.workspace }}/artifacts/consumers/node/node_modules/@7mlabs/numerology
+        run: node scripts/test-node.cjs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Python 3.10 installed consumer
+        env:
+          NUMEROLOGY_INSTALLED_PACKAGE: '1'
+        run: |
+          python -m venv artifacts/py310
+          artifacts/py310/bin/python -m pip install --no-index artifacts/packages/*.whl
+          artifacts/py310/bin/python scripts/test-python.py
+      - name: .NET 8 installed consumer
+        run: dotnet run --project artifacts/consumers/dotnet/Consumer.csproj -p:TargetFramework=net8.0 -- artifacts/conformance.json
+      - name: Stage current native payloads for portable assembly
+        run: python scripts/stage-ci.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-${{ matrix.expected }}
+          path: artifacts/ci/
+          if-no-files-found: error

@@ -1,0 +1,7 @@
+{
+  "name": "numerology-sdk-build-tools",
+  "private": true,
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}

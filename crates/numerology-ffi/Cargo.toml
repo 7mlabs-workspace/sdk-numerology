@@ -1,0 +1,12 @@
+[package]
+name = "sevenmlabs-numerology-ffi"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+[lib]
+name = "sevenmlabs_numerology"
+crate-type = ["cdylib", "rlib"]
+[dependencies]
+numerology-core.workspace = true

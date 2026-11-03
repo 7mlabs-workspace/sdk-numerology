@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "sevenmlabs-numerology"
+version = "1.0.0"
+description = "Offline Pythagorean numerology SDK with a shared Rust core"
+requires-python = ">=3.10"
+authors = [{name = "7mlabs"}]
+license = "MIT"
+license-files = ["LICENSE"]
+readme = "README.md"
+[project.urls]
+Source = "https://github.com/7mlabs-workspace/sdk-numerology"
+[tool.setuptools]
+packages = ["sevenmlabs_numerology"]
+include-package-data = false
+[tool.setuptools.package-data]
+sevenmlabs_numerology = ["native/**/*", "LICENSE", "THIRD-PARTY-NOTICES.txt"]
