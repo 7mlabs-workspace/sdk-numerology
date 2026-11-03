@@ -3,7 +3,7 @@
 import json, subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-metadata=json.loads(subprocess.check_output(["cargo","metadata","--offline","--locked","--format-version","1"],cwd=ROOT))
+metadata=json.loads(subprocess.check_output(["cargo","metadata","--locked","--format-version","1"],cwd=ROOT))
 parts=["7mlabs Numerology SDK 1.0.0 — third-party notices\nThe SDK's own code is MIT, Copyright (c) 2026 7mlabs.\nThe following dependency licenses and copyright notices are retained.\n"]
 for package in sorted(metadata["packages"],key=lambda p:(p["name"],p["version"])):
  if package["source"] is None:continue

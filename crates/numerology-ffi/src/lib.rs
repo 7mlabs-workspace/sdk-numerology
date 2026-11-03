@@ -27,15 +27,13 @@ pub unsafe extern "C" fn numerology_calculate_json_len(
             return failure("NULL_INPUT", "Input pointer is null");
         }
         if len > numerology_core::MAX_REQUEST_BYTES {
-            return numerology_core::calculate_json(
-                &" ".repeat(numerology_core::MAX_REQUEST_BYTES + 1),
-            );
+            return numerology_core::calculate_bytes(&vec![
+                b' ';
+                numerology_core::MAX_REQUEST_BYTES + 1
+            ]);
         }
         let bytes = unsafe { std::slice::from_raw_parts(input, len) };
-        match std::str::from_utf8(bytes) {
-            Ok(s) => numerology_core::calculate_json(s),
-            Err(_) => failure("INVALID_UTF8", "Input must be UTF-8"),
-        }
+        numerology_core::calculate_bytes(bytes)
     })
     .unwrap_or_else(|_| failure("INTERNAL_ERROR", "Calculation failed"));
     owned(result)

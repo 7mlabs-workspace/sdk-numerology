@@ -349,6 +349,13 @@ fn essence(n: &Name, d: Date, r: &Request) -> Result<Value> {
     Ok(json!({"years":years}))
 }
 pub fn calculate(r: &Request) -> Result<Value> {
+    if r.start_age > 120 || r.years == 0 || r.years > 120 {
+        return Err(err(
+            "INVALID_RANGE",
+            "years",
+            "Use 1..120 years and startAge within 0..120",
+        ));
+    }
     if r.system != "pythagorean" {
         return Err(err(
             "UNSUPPORTED_SYSTEM",
@@ -433,6 +440,16 @@ pub fn calculate_json(input: &str) -> String {
     match result {
         Ok(v) => json!({"ok":true,"result":v}).to_string(),
         Err(e) => json!({"ok":false,"error":e}).to_string(),
+    }
+}
+/// Bounded UTF-8 input for C/CLI integrations, including malformed byte streams.
+pub fn calculate_bytes(input: &[u8]) -> String {
+    if input.len() > MAX_REQUEST_BYTES {
+        return serde_json::json!({"ok":false,"error":err("REQUEST_TOO_LARGE","request","JSON request exceeds 16384 bytes")}).to_string();
+    }
+    match std::str::from_utf8(input) {
+        Ok(input) => calculate_json(input),
+        Err(_) => serde_json::json!({"ok":false,"error":err("INVALID_UTF8","request","Input must be UTF-8")}).to_string(),
     }
 }
 #[cfg(test)]

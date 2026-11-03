@@ -210,3 +210,14 @@ fn modular_operations_match_profile() {
         );
     }
 }
+
+#[test]
+fn bounded_invalid_byte_streams() {
+    let oversize = "đ".repeat(8193).into_bytes();
+    for bytes in [&oversize[..], &oversize[..16385]] {
+        let result: Value = serde_json::from_str(&numerology_core::calculate_bytes(bytes)).unwrap();
+        assert_eq!(result["error"]["code"], "REQUEST_TOO_LARGE");
+    }
+    let result: Value = serde_json::from_str(&numerology_core::calculate_bytes(&[0xff])).unwrap();
+    assert_eq!(result["error"]["code"], "INVALID_UTF8");
+}
