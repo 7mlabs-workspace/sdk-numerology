@@ -1,0 +1,54 @@
+name: Publish verified Numerology wheels to PyPI
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Successful complete SDK validation run ID
+        required: true
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate build identity
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VALIDATED_RUN_ID: ${{ inputs.run_id }}
+          VERIFY_MODE: identity
+        run: python3 scripts/verify-publish.py
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.run_id }}
+          name: release-candidate
+          path: artifacts/validated
+      - name: Verify wheel metadata and tested bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VALIDATED_RUN_ID: ${{ inputs.run_id }}
+        run: python3 scripts/verify-publish.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pypi-approved-wheels
+          path: artifacts/pypi-dist/
+          if-no-files-found: error
+  publish:
+    needs: verify
+    runs-on: ubuntu-22.04
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: pypi-approved-wheels
+          path: dist/
+      - name: Publish through PyPI Trusted Publishing
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
