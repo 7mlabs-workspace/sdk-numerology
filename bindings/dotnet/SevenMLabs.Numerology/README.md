@@ -1,47 +1,18 @@
 # 7mlabs Numerology SDK
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/hero.vi.dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/hero.vi.light.svg">
-  <img src="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/hero.vi.light.svg" width="1280" alt="7mlabs Numerology SDK — logo đầy đủ do chủ dự án chọn; banner theo chế độ sáng hoặc tối">
-</picture>
+![7mlabs Numerology SDK — logo đầy đủ do chủ dự án chọn; banner theo chế độ sáng hoặc tối](https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/hero.vi.light.svg)
 
 **Tiếng Việt** · [English](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/README.en.md)
 
-<p align="center">
-<a href="LICENSE">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-license.dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-license.light.svg">
-  <img src="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-license.light.svg" height="26" alt="Giấy phép MIT">
-</picture>
-</a>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-rust.dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-rust.light.svg">
-  <img src="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-rust.light.svg" height="26" alt="Lõi Rust">
-</picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-offline.dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-offline.light.svg">
-  <img src="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-offline.light.svg" height="26" alt="Tính ngoại tuyến">
-</picture>
-<a href="https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/rules.vi.md">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-system.dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-system.light.svg">
-  <img src="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-system.light.svg" height="26" alt="Trường phái Pythagorean">
-</picture>
-</a>
-</p>
-
-[Bắt đầu](#quick-start) · [Chức năng](#features) · [Công thức](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/features-and-formulas.vi.md) · [Ví dụ JSON](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/examples/profile-response.json) · [Phát triển](#development)
+[![Giấy phép MIT](https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-license.light.svg)](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/LICENSE)
+![Lõi Rust](https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-rust.light.svg)
+![Tính ngoại tuyến](https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-offline.light.svg)
+[![Trường phái Pythagorean](https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/badge-system.light.svg)](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/rules.vi.md)
+[Bắt đầu](#cách-gọi-cơ-bản) · [Chức năng](#chức-năng-hiện-có) · [Công thức](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/features-and-formulas.vi.md) · [Ví dụ JSON](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/examples/profile-response.json) · [Phát triển](#dựng-và-kiểm-thử)
 
 SDK thần số học Pythagorean do **7mlabs phát triển**, tính ngoại tuyến bằng một lõi Rust dùng chung cho Node.js/TypeScript, Python, .NET và giao diện C. Giấy phép MIT — Copyright (c) 2026 7mlabs.
 
 Phiên bản SDK: **1.0.0**. Bản này gồm các chức năng nhiều tên và phần mở rộng tùy chọn mô tả bên dưới. Tệp gói chính thức và nền tảng native đã kiểm chứng được ghi trong bản kê phát hành. Đây là SDK độc lập với hợp đồng JSON riêng, không phải bản thay thế trực tiếp dịch vụ HTTP cũ. Phép tính chạy ngay trong tiến trình ứng dụng, không cần máy chủ engine hay Internet.
-
-<a id="features"></a>
 
 ## Chức năng hiện có
 
@@ -69,13 +40,7 @@ Tài liệu giải thích công thức; payload ghi trường phái, phiên bả
 
 ## Từ đầu vào đến payload
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/calculation-flow.vi.dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/calculation-flow.vi.light.svg">
-  <img src="https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/calculation-flow.vi.light.svg" width="1280" alt="Tên, ngày sinh và tùy chọn đi qua lõi Rust, trả JSON kèm giá trị, quy tắc và nguồn.">
-</picture>
-
-<a id="quick-start"></a>
+![Tên, ngày sinh và tùy chọn đi qua lõi Rust, trả JSON kèm giá trị, quy tắc và nguồn.](https://raw.githubusercontent.com/7mlabs-workspace/sdk-numerology/main/docs/assets/readme/calculation-flow.vi.light.svg)
 
 ## Cách gọi cơ bản
 
@@ -111,9 +76,6 @@ Console.WriteLine(result.GetProperty("data").GetProperty("birth").GetProperty("l
 
 Các binding có hàm JSON thô `calculateJson`, `calculate_json`, `CalculateJson`, trả `ok` cùng `result` hoặc `error` có cấu trúc. Hàm tiện ích trả trực tiếp result, ném lỗi có code/field khi tính thất bại. Kết quả thành công ghi phiên bản engine/schema/quy tắc và cấu hình được chọn. Không sửa đầu vào; cùng đầu vào và ngày tham chiếu cho cùng kết quả qua các binding. Xem [quy tắc đầy đủ](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/rules.vi.md) trước khi so với website có quy ước khác.
 
-<details>
-<summary><strong>Payload mở rộng tùy chọn</strong></summary>
-
 ## Payload mở rộng tùy chọn
 
 Bỏ `extensions` để giữ payload schema 1.0, giá trị và API Rust Request cũ. Truyền đối tượng để chọn các phần bổ sung schema 1.1:
@@ -135,11 +97,6 @@ console.log(result.data.extended.rationalThought.number.value);
 `data.extended` chỉ chứa phần phù hợp với operation: độ phủ trục, ba Giai đoạn theo tuổi nguyên, Tư duy từ given khai sinh, tên thường gọi tùy chọn và biểu đồ ngày sinh/tên kết hợp. Tên thường gọi không thay phép tính tên khai sinh. Mỗi biểu đồ kết hợp/Tư duy ghi nguồn rõ. reducedValues và indicators mặc định true, tắt độc lập; currentName cần indicators=true và operation name/profile. Rust có `calculate_with_extensions(&request, &Extensions::default())`, không cần sửa cấu trúc Request cũ.
 
 Các phần mở rộng thuộc SDK 1.0.0. Gói phát hành phải được dựng từ đúng source và kiểm chứng trên từng nền tảng; bản kê phát hành ghi mã commit và mã kiểm tra SHA-256. Mã quy tắc mở rộng riêng là `pythagorean-7mlabs-extensions-1.0`, quy tắc cơ bản không đổi. Xem [ma trận phần mở rộng](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/rules.vi.md#phan-mo-rong).
-
-</details>
-
-<details>
-<summary><strong>Nhiều tên và nhóm ghép được chọn</strong></summary>
 
 ## Nhiều tên và nhóm ghép được chọn
 
@@ -168,11 +125,6 @@ Profile bật `extensions.nameSet`, truyền tên thêm trong names và nhóm tr
 
 Các phần chọn là given, middle, family, full; full mặc định ghép theo given/middle/family. Giữ thứ tự nguồn, ngăn các phần không rỗng bằng khoảng trắng. Tên riêng trùng sau chuẩn hóa vẫn giữ ID khác nhau; nhóm chọn chuỗi trùng hoặc phần chồng nhau thì báo lỗi. Từ chối ID không có, tham chiếu nhóm khác, phần được chọn rỗng và ID trùng. Giới hạn: 32 tên gồm birth trong profile, 32 nhóm, 2–32 nguồn/nhóm, 4096 byte chuỗi ghép chuẩn hóa và 16 KiB toàn yêu cầu JSON. Xem [quy tắc nhiều tên](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/rules.vi.md#nhieu-ten).
 
-</details>
-
-<details>
-<summary><strong>Thử thách theo tên</strong></summary>
-
 ## Thử thách theo tên
 
 Hai Thử thách có nguồn công thức chỉ xuất hiện khi yêu cầu rõ trên name/profile:
@@ -189,10 +141,6 @@ console.log(result.data.extended.nameChallenges.birthName.personality.value); //
 Phải chọn givenMiddleFamily hoặc familyMiddleGiven. Thử thách Linh hồn là trị tuyệt đối hiệu giá trị nguyên âm đầu–cuối, giữ 0. Thử thách Nhân cách dùng phụ âm đầu–cuối và đổi hiệu 0 thành 9 theo quy ước Roy Kirkland. Kết quả ghi chuỗi theo thứ tự, cách xử lý Y, hai chữ và giá trị, hiệu gốc, kết quả cuối, phương pháp và mã quy tắc. Không có chữ đúng loại thì unavailable với giá trị null; một chữ đúng loại cho hiệu 0 hợp lệ.
 
 CurrentName được tính riêng với cùng thứ tự đã chọn. Tùy chọn này không tự mở rộng kết quả nameSet; tên khác có thể tính qua name hoặc hàm Rust calculate_name_challenges. Cần indicators=true. Giữ nguyên cấu trúc Rust Request, Extensions, NamesRequest, NameSet; không bật hoặc truyền null thì không đổi đầu ra cũ. Xem [căn cứ và phương pháp chưa xác minh](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/formula-verification.vi.md).
-
-</details>
-
-<a id="development"></a>
 
 ## Dựng và kiểm thử
 
