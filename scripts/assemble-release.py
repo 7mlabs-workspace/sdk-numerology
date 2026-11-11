@@ -3,12 +3,16 @@
 import hashlib,json,os,shutil,subprocess,tarfile,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];inputs=ROOT/'artifacts/download';out=ROOT/'artifacts/release';out.mkdir(parents=True,exist_ok=True)
-sha=os.environ['GITHUB_SHA'];repository='7mlabs-workspace/sdk-numerology';provenances=[]
+sha=os.environ['GITHUB_SHA'];repository='7mlabs-workspace/sdk-numerology';provenances=[];conformance=None
 for target,rid in [('darwin-arm64','osx-arm64'),('linux-x64','linux-x64')]:
  base=inputs/('native-'+target);proof=json.loads((base/'provenance.json').read_text());assert proof['commit']==sha and proof['repository']==repository and proof['engineVersion']=='1.0.0'
  for rel,expected in proof['files'].items():
   file=base/rel;assert file.resolve().is_relative_to(base.resolve());assert hashlib.sha256(file.read_bytes()).hexdigest()==expected,rel
- verified=json.loads((base/'packages/consumer-verification.json').read_text());assert verified['status']=='passed' and verified['sharedCases']==302
+ verified=json.loads((base/'packages/consumer-verification.json').read_text());assert verified['status']=='passed'
+ assert proof['conformance']['cases']>0 and verified['sharedCases']==proof['conformance']['cases']
+ assert verified['conformanceSha256']==proof['conformance']['sha256']
+ if conformance is None:conformance=proof['conformance']
+ else:assert conformance==proof['conformance'], 'Native targets must test the same contract fixtures'
  assert verified['manifestSha256']==hashlib.sha256((base/'packages/host-manifest.json').read_bytes()).hexdigest()
  candidate=json.loads((base/'packages/host-manifest.json').read_text())
  for artifact in candidate['artifacts']:assert hashlib.sha256((base/'packages'/artifact['name']).read_bytes()).hexdigest()==artifact['sha256']
@@ -37,7 +41,7 @@ with zipfile.ZipFile(next(out.glob('*.nupkg'))) as z:
   ext='dylib' if rid.startswith('osx') else 'so';name=f'runtimes/{rid}/native/libsevenmlabs_numerology.{ext}'
   assert z.read(name)==(ROOT/'bindings/dotnet/SevenMLabs.Numerology'/name).read_bytes()
 artifacts=[{'name':p.name,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size} for p in sorted(out.iterdir()) if p.suffix in ['.whl','.tgz','.nupkg']];assert len(artifacts)==4
-manifest={'version':'1.0.0','sourceCommit':sha,'repository':repository,'license':'MIT','copyright':'Copyright (c) 2026 7mlabs','nativeTargets':['darwin-arm64','linux-x64'],'python':'3.10+','dotnet':'8.0+','node':'18+','rulesVersion':'pythagorean-7mlabs-1.0','artifacts':artifacts,'candidateOnly':True}
+manifest={'version':'1.0.0','sourceCommit':sha,'repository':repository,'license':'MIT','copyright':'Copyright (c) 2026 7mlabs','nativeTargets':['darwin-arm64','linux-x64'],'python':'3.10+','dotnet':'8.0+','node':'18+','rulesVersion':'pythagorean-7mlabs-1.0','artifacts':artifacts,'candidateOnly':True,'conformance':conformance}
 (out/'release-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n');(out/'host-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 (out/'SHA256SUMS').write_text(''.join(f"{p['sha256']}  {p['name']}\n" for p in artifacts))
 print(json.dumps(manifest))

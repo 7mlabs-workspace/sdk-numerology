@@ -1,0 +1,43 @@
+{
+  "operation": "profile",
+  "system": "pythagorean",
+  "name": {
+    "given": "An",
+    "family": "Le"
+  },
+  "birthDate": "2000-02-29",
+  "referenceDate": "2026-11-11",
+  "years": 1,
+  "extensions": {
+    "currentName": {
+      "given": "Map"
+    },
+    "nameChallenges": {
+      "nameOrder": "familyMiddleGiven"
+    },
+    "nameSet": {
+      "names": [
+        {
+          "id": "alias",
+          "name": {
+            "given": "Map"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "id": "given-and-alias",
+          "sources": [
+            {
+              "nameId": "birth",
+              "part": "given"
+            },
+            {
+              "nameId": "alias"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

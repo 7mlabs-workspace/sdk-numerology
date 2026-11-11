@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "sevenmlabs-numerology"
 version = "1.0.0"
-description = "Offline Pythagorean numerology SDK with a shared Rust core"
+description = "SDK thần số học Pythagorean ngoại tuyến: chỉ số họ tên, ngày sinh, chu kỳ, Đỉnh cao và Essence; lõi Rust, quy tắc có phiên bản và các bước rút gọn."
 requires-python = ">=3.10"
 authors = [{name = "7mlabs"}]
 license = "MIT"
