@@ -3,6 +3,15 @@ use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use std::collections::BTreeMap;
 use unicode_normalization::{char::is_combining_mark, UnicodeNormalization};
+mod extensions;
+pub use extensions::{calculate_with_extensions, Extensions};
+mod name_challenges;
+pub use name_challenges::{calculate_name_challenges, NameChallengeOptions, NameOrder};
+mod names;
+pub use names::{
+    calculate_names, calculate_with_name_set, NameCombination, NameInput, NamePart, NameSet,
+    NameSource, NamesRequest,
+};
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 pub const RULES: &str = "pythagorean-7mlabs-1.0";
 pub const MAX_REQUEST_BYTES: usize = 16384;
@@ -78,6 +87,114 @@ fn system() -> String {
 }
 fn hundred() -> u16 {
     100
+}
+// Keep Request's public Rust layout unchanged. The JSON wire can opt into extensions
+// without adding required fields to existing callers' Request struct literals.
+#[derive(Deserialize)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
+struct WireRequest {
+    operation: String,
+    #[serde(default = "system")]
+    system: String,
+    name: Option<Name>,
+    birth_date: Option<String>,
+    reference_date: Option<String>,
+    #[serde(default)]
+    options: Options,
+    #[serde(default)]
+    start_age: u16,
+    #[serde(default = "hundred")]
+    years: u16,
+    extensions: Option<WireExtensions>,
+    #[serde(default, deserialize_with = "present_vec")]
+    names: Option<Vec<NameInput>>,
+    #[serde(default, deserialize_with = "present_vec")]
+    combinations: Option<Vec<NameCombination>>,
+}
+fn present_vec<'de, D, T>(deserializer: D) -> std::result::Result<Option<Vec<T>>, D::Error>
+where
+    D: serde::Deserializer<'de>,
+    T: Deserialize<'de>,
+{
+    Vec::<T>::deserialize(deserializer).map(Some)
+}
+// Preserve the already-public Extensions struct as well as Request.
+#[derive(Deserialize)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
+struct WireExtensions {
+    #[serde(default = "yes")]
+    reduced_values: bool,
+    #[serde(default = "yes")]
+    indicators: bool,
+    current_name: Option<Name>,
+    name_set: Option<NameSet>,
+    name_challenges: Option<NameChallengeOptions>,
+}
+impl WireRequest {
+    fn calculate(self) -> Result<Value> {
+        if self.operation == "names" {
+            if self.name.is_some()
+                || self.reference_date.is_some()
+                || self.extensions.is_some()
+                || self.start_age != 0
+                || self.years != 100
+            {
+                return Err(err(
+                    "INVALID_REQUEST",
+                    "request",
+                    "names accepts names, combinations, optional birthDate, system and options",
+                ));
+            }
+            return calculate_names(&NamesRequest {
+                names: self.names.ok_or_else(|| {
+                    err(
+                        "MISSING_FIELD",
+                        "names",
+                        "Provide a nonempty list of named inputs",
+                    )
+                })?,
+                combinations: self.combinations.unwrap_or_default(),
+                birth_date: self.birth_date,
+                system: self.system,
+                options: self.options,
+            });
+        }
+        if self.names.is_some() || self.combinations.is_some() {
+            return Err(err(
+                "INVALID_REQUEST",
+                "request",
+                "Top-level names and combinations require operation names; profiles use extensions.nameSet",
+            ));
+        }
+        let request = Request {
+            operation: self.operation,
+            system: self.system,
+            name: self.name,
+            birth_date: self.birth_date,
+            reference_date: self.reference_date,
+            options: self.options,
+            start_age: self.start_age,
+            years: self.years,
+        };
+        match self.extensions {
+            Some(wire) => {
+                let extensions = Extensions {
+                    reduced_values: wire.reduced_values,
+                    indicators: wire.indicators,
+                    current_name: wire.current_name,
+                };
+                let mut output = match wire.name_set {
+                    Some(set) => calculate_with_name_set(&request, &extensions, &set),
+                    None => calculate_with_extensions(&request, &extensions),
+                }?;
+                if let Some(settings) = wire.name_challenges {
+                    name_challenges::add_to_result(&mut output, &settings, extensions.indicators)?;
+                }
+                Ok(output)
+            }
+            None => calculate(&request),
+        }
+    }
 }
 #[derive(Clone, Debug, Deserialize, Serialize, PartialEq, Eq)]
 #[serde(rename_all = "camelCase")]
@@ -215,10 +332,13 @@ fn normalized_name(r: &Request) -> Result<Name> {
             "Provide structured given, middle and family name components",
         )
     })?;
+    normalize_parts(n, "name")
+}
+fn normalize_parts(n: &Name, prefix: &str) -> Result<Name> {
     Ok(Name {
-        given: normalize(&n.given, "name.given", true)?,
-        middle: normalize(&n.middle, "name.middle", false)?,
-        family: normalize(&n.family, "name.family", false)?,
+        given: normalize(&n.given, &format!("{prefix}.given"), true)?,
+        middle: normalize(&n.middle, &format!("{prefix}.middle"), false)?,
+        family: normalize(&n.family, &format!("{prefix}.family"), false)?,
     })
 }
 fn letter(c: u8) -> u32 {
@@ -435,7 +555,7 @@ pub fn calculate_json(input: &str) -> String {
             "JSON request exceeds 16384 bytes",
         ))
     } else {
-        serde_json::from_str::<Request>(input).map_err(|_|err("INVALID_REQUEST","request","Malformed JSON, duplicate/unknown fields, missing operation or incorrect field types")).and_then(|r|calculate(&r))
+        serde_json::from_str::<WireRequest>(input).map_err(|_|err("INVALID_REQUEST","request","Malformed JSON, duplicate/unknown fields, missing operation or incorrect field types")).and_then(WireRequest::calculate)
     };
     match result {
         Ok(v) => json!({"ok":true,"result":v}).to_string(),

@@ -41,6 +41,8 @@ jobs:
         run: |
           python scripts/collect-notices.py
           python scripts/build-native.py
+          python scripts/check-legacy-contract.py
+          python scripts/check-legacy-contract.py --baseline tests/fixtures/extended-contract.json
           python scripts/make-conformance.py
       - name: Verify TypeScript contracts and native consumers
         run: |
@@ -144,6 +146,8 @@ jobs:
       - name: Generate same-contract native fixtures and test final packages
         run: |
           cargo build --release --locked -p sevenmlabs-numerology-cli
+          python scripts/check-legacy-contract.py
+          python scripts/check-legacy-contract.py --baseline tests/fixtures/extended-contract.json
           python scripts/make-conformance.py
           python scripts/verify-packages.py
       - uses: actions/setup-node@v4

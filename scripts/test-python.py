@@ -7,9 +7,16 @@ if os.environ.get("NUMEROLOGY_INSTALLED_PACKAGE"):assert Path(sdk.__file__).is_r
 cases=json.loads((ROOT/'artifacts/conformance.json').read_text())
 for test in cases:assert json.loads(sdk.calculate_json(test['request']))==test['expected']
 request={'operation':'name','name':{'given':'Đặng An'}};original=copy.deepcopy(request);sdk.calculate(request);assert request==original
+names_request={'operation':'names','birthDate':'2000-02-29','names':[{'id':'a','name':{'given':'Ada'}},{'id':'nick','name':{'given':'Map'}}],'combinations':[{'id':'selected','sources':[{'nameId':'a'},{'nameId':'nick'}]}]}
+names_before=copy.deepcopy(names_request);names_result=sdk.calculate(names_request);assert names_request==names_before
+assert len(names_result['data']['names']['names'])==2 and len(names_result['data']['names']['combinations'])==1
 try:sdk.calculate({'operation':'name','name':{'given':'123'}});raise AssertionError('error expected')
 except sdk.NumerologyError as e:assert e.code=='UNSUPPORTED_CHARACTER'
-for _ in range(5000):sdk.calculate({'operation':'birth','birthDate':'2000-02-29'})
+challenge_request={'operation':'name','name':{'given':'Steve','family':'Jones'},'extensions':{'nameChallenges':{'nameOrder':'givenMiddleFamily'}}}
+challenge_before=copy.deepcopy(challenge_request);challenges=sdk.calculate(challenge_request)['data']['extended']['nameChallenges']['birthName']
+assert challenge_request==challenge_before
+assert challenges['personality']['difference']==0 and challenges['personality']['value']==9 and challenges['soulUrge']['value']==0
+for i in range(5000):sdk.calculate(names_request if i%2 else {'operation':'birth','birthDate':'2000-02-29'})
 pointer=sdk._lib.numerology_calculate_json(None)
 try:assert json.loads(ctypes.string_at(pointer))["error"]["code"]=="NULL_INPUT"
 finally:sdk._lib.numerology_free(pointer)
@@ -17,4 +24,4 @@ pointer=sdk._lib.numerology_calculate_json(b'\xff')
 try:assert json.loads(ctypes.string_at(pointer))['error']['code']=='INVALID_UTF8'
 finally:sdk._lib.numerology_free(pointer)
 sdk._lib.numerology_free(None)
-print(json.dumps({'python':sys.version.split()[0],'cases':len(cases),'repeatedCalculations':5000,'status':'passed'}))
+print(json.dumps({'python':sys.version.split()[0],'cases':len(cases),'repeatedCalculations':5000,'repeatedNamesCalculations':2500,'status':'passed'}))
