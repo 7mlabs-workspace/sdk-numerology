@@ -6,6 +6,8 @@
 
 [SDK home](../README.en.md) · **Features & formulas** · [Calculation rules](rules.md) · [Formula evidence](formula-verification.md)
 
+> SDK 1.1.0 adds [filtered output](payload-filtering.md) with a separate schema. Paths below describe full output; calculation conventions remain unchanged.
+
 ---
 
 <details open>
@@ -24,7 +26,7 @@
 
 </details>
 
-This catalog describes SDK 1.0.0, including multi-name calculations and optional schema 1.1 additions. Match packages to the tested commit and hashes in the release manifest. See [the README](../README.en.md) for build/use instructions and [the exact rules](rules.md) for validation and edge cases.
+This catalog describes SDK 1.1.0 (candidate), including multi-name calculations and optional schema 1.1 additions. Match packages to the tested commit and hashes in the release manifest. See [the README](../README.en.md) for build/use instructions and [the exact rules](rules.md) for validation and edge cases.
 
 <a id="doc-section-1"></a>
 

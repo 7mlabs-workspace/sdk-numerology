@@ -1,6 +1,6 @@
 {
   "name": "@7mlabs/numerology",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "SDK thần số học Pythagorean ngoại tuyến: chỉ số họ tên, ngày sinh, chu kỳ, Đỉnh cao và Essence; lõi Rust, quy tắc có phiên bản và các bước rút gọn.",
   "main": "index.cjs",
   "types": "index.d.ts",

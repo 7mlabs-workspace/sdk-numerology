@@ -1,0 +1,1032 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/7mlabs-workspace/sdk-numerology/filtered-result.schema.json",
+  "title": "Filtered Numerology result — reduced disclosure, not anonymous",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "filtered-1.0"
+    },
+    "engineVersion": {
+      "const": "1.1.0"
+    },
+    "system": {
+      "const": "pythagorean"
+    },
+    "rulesVersion": {
+      "const": "pythagorean-7mlabs-1.0"
+    },
+    "operation": {
+      "enum": [
+        "name",
+        "birth",
+        "cycles",
+        "essence",
+        "profile",
+        "names"
+      ]
+    },
+    "options": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "keepMasterNumbers": {
+          "type": "boolean"
+        },
+        "yRule": {
+          "enum": [
+            "contextual",
+            "vowel",
+            "consonant"
+          ]
+        }
+      },
+      "required": [
+        "keepMasterNumbers",
+        "yRule"
+      ]
+    },
+    "data": {},
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "const": "CONTEXTUAL_Y_HEURISTIC"
+          },
+          "field": {
+            "type": "string"
+          },
+          "message": {
+            "const": "Contextual Y uses spelling adjacency, not phonetic analysis"
+          }
+        },
+        "required": [
+          "code",
+          "field",
+          "message"
+        ]
+      }
+    },
+    "outputPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "const": "filtered-1.0"
+        },
+        "anonymous": {
+          "const": false
+        },
+        "referenceDateMayBeRecoverable": {
+          "type": "boolean"
+        },
+        "omittedGroups": {
+          "const": [
+            "nameTextAndLetters",
+            "callerIdentifiers",
+            "birthDateSourcesAndGrids",
+            "calendarYearOfAge",
+            "transitComponents"
+          ]
+        },
+        "withheldTraceIndicators": {
+          "const": [
+            "attitude",
+            "rationalThought"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "anonymous",
+        "referenceDateMayBeRecoverable",
+        "omittedGroups",
+        "withheldTraceIndicators"
+      ]
+    },
+    "calculationRules": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "normalization": {
+          "const": "latinNfdStripCombiningMarksVietnameseDToDUppercase"
+        },
+        "nameParts": {
+          "const": "explicitGivenMiddleFamily"
+        },
+        "yRule": {
+          "enum": [
+            "contextual",
+            "vowel",
+            "consonant"
+          ]
+        },
+        "contextualY": {
+          "const": "vowelUnlessAdjacentToAEIOUInSameWord"
+        },
+        "bridgeMethod": {
+          "const": "absoluteDifferenceOfReturnedValues"
+        },
+        "nameFrequency": {
+          "const": "pythagoreanLetterValues1To9"
+        }
+      },
+      "required": [
+        "normalization",
+        "nameParts",
+        "yRule",
+        "contextualY",
+        "bridgeMethod",
+        "nameFrequency"
+      ]
+    },
+    "namesRulesVersion": {
+      "const": "pythagorean-7mlabs-names-1.0"
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rulesVersion": {
+          "const": "pythagorean-7mlabs-extensions-1.0"
+        },
+        "indicators": {
+          "type": "boolean"
+        },
+        "namesRulesVersion": {
+          "const": "pythagorean-7mlabs-names-1.0"
+        },
+        "nameChallengesRulesVersion": {
+          "const": "pythagorean-7mlabs-name-challenges-1.0"
+        }
+      },
+      "required": [
+        "rulesVersion",
+        "indicators"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "engineVersion",
+    "system",
+    "rulesVersion",
+    "operation",
+    "options",
+    "data",
+    "warnings",
+    "outputPolicy",
+    "calculationRules"
+  ],
+  "$defs": {
+    "effectiveRules": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "reduction": {
+          "const": "decimalDigitSum"
+        },
+        "preserveMasterNumbers": {
+          "enum": [
+            [],
+            [
+              11,
+              22,
+              33
+            ]
+          ]
+        }
+      },
+      "required": [
+        "method",
+        "reduction",
+        "preserveMasterNumbers"
+      ]
+    },
+    "tracedNumber": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reducedValue": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9
+        },
+        "isMaster": {
+          "type": "boolean"
+        },
+        "karmicDebt": {
+          "enum": [
+            null,
+            13,
+            14,
+            16,
+            19
+          ]
+        },
+        "effectiveRules": {
+          "$ref": "#/$defs/effectiveRules"
+        },
+        "root": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "traceStatus": {
+          "const": "included"
+        }
+      },
+      "required": [
+        "value",
+        "reducedValue",
+        "isMaster",
+        "karmicDebt",
+        "effectiveRules",
+        "root",
+        "steps",
+        "traceStatus"
+      ]
+    },
+    "withheldNumber": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reducedValue": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9
+        },
+        "isMaster": {
+          "type": "boolean"
+        },
+        "karmicDebt": {
+          "enum": [
+            null,
+            13,
+            14,
+            16,
+            19
+          ]
+        },
+        "effectiveRules": {
+          "$ref": "#/$defs/effectiveRules"
+        },
+        "traceStatus": {
+          "const": "withheld"
+        },
+        "traceWithheldReason": {
+          "const": "birthDateInference"
+        }
+      },
+      "required": [
+        "value",
+        "reducedValue",
+        "isMaster",
+        "karmicDebt",
+        "effectiveRules",
+        "traceStatus",
+        "traceWithheldReason"
+      ]
+    },
+    "frequency": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "1": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "2": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "3": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "4": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "5": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "6": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "7": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "8": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "9": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    "nameNumbers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expression": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "soulUrge": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "personality": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "balance": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "givenName": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "familyName": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "frequency": {
+          "$ref": "#/$defs/frequency"
+        },
+        "missingNumbers": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "hiddenPassion": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "subconsciousSelf": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "expression",
+        "soulUrge",
+        "personality",
+        "balance",
+        "givenName",
+        "familyName",
+        "frequency",
+        "missingNumbers",
+        "hiddenPassion",
+        "subconsciousSelf"
+      ]
+    },
+    "thought": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nameSource": {
+          "enum": [
+            "birthName.given",
+            "given",
+            "selectedText"
+          ]
+        },
+        "number": {
+          "$ref": "#/$defs/withheldNumber"
+        }
+      },
+      "required": [
+        "nameSource",
+        "number"
+      ]
+    },
+    "nameEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^n[1-9][0-9]*$"
+        },
+        "source": {
+          "enum": [
+            "input",
+            "profile.birthName"
+          ]
+        },
+        "numbers": {
+          "$ref": "#/$defs/nameNumbers"
+        },
+        "rationalThought": {
+          "$ref": "#/$defs/thought"
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "numbers"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nameId": {
+          "type": "string",
+          "pattern": "^n[1-9][0-9]*$"
+        },
+        "part": {
+          "enum": [
+            "full",
+            "given",
+            "middle",
+            "family"
+          ]
+        }
+      },
+      "required": [
+        "nameId",
+        "part"
+      ]
+    },
+    "combination": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^c[1-9][0-9]*$"
+        },
+        "method": {
+          "const": "concatenateSelectedParts"
+        },
+        "reduction": {
+          "const": "wholeNameSum"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "numbers": {
+          "$ref": "#/$defs/nameNumbers"
+        },
+        "rationalThought": {
+          "$ref": "#/$defs/thought"
+        }
+      },
+      "required": [
+        "id",
+        "method",
+        "reduction",
+        "sources",
+        "numbers"
+      ]
+    },
+    "nameSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rulesVersion": {
+          "const": "pythagorean-7mlabs-names-1.0"
+        },
+        "names": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nameEntry"
+          }
+        },
+        "combinations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/combination"
+          }
+        }
+      },
+      "required": [
+        "rulesVersion",
+        "names",
+        "combinations"
+      ]
+    },
+    "birth": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lifePath": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "attitude": {
+          "$ref": "#/$defs/withheldNumber"
+        }
+      },
+      "required": [
+        "lifePath",
+        "attitude"
+      ]
+    },
+    "pinnacle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "phase": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "number": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "startAge": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "endAge": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "phase",
+        "number",
+        "startAge",
+        "endAge"
+      ]
+    },
+    "cycles": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "personalYear": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "personalMonth": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "personalDay": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "universalYear": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "universalMonth": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "universalDay": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "pinnacles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pinnacle"
+          }
+        },
+        "challenges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/tracedNumber"
+          }
+        }
+      },
+      "required": [
+        "personalYear",
+        "personalMonth",
+        "personalDay",
+        "universalYear",
+        "universalMonth",
+        "universalDay",
+        "pinnacles",
+        "challenges"
+      ]
+    },
+    "essence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "years": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "age": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 120
+              },
+              "essence": {
+                "$ref": "#/$defs/tracedNumber"
+              }
+            },
+            "required": [
+              "age",
+              "essence"
+            ]
+          }
+        }
+      },
+      "required": [
+        "years"
+      ]
+    },
+    "derived": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maturity": {
+          "$ref": "#/$defs/tracedNumber"
+        },
+        "lifePathExpressionBridge": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "soulPersonalityBridge": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "maturity",
+        "lifePathExpressionBridge",
+        "soulPersonalityBridge"
+      ]
+    },
+    "letterChallenge": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "const": "available"
+            },
+            "difference": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "status",
+            "difference",
+            "value"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "const": "unavailable"
+            },
+            "reason": {
+              "const": "noMatchingLetters"
+            },
+            "difference": {
+              "const": null
+            },
+            "value": {
+              "const": null
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "difference",
+            "value"
+          ]
+        }
+      ]
+    },
+    "nameChallenge": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rulesVersion": {
+          "const": "pythagorean-7mlabs-name-challenges-1.0"
+        },
+        "nameOrder": {
+          "enum": [
+            "givenMiddleFamily",
+            "familyMiddleGiven"
+          ]
+        },
+        "yRule": {
+          "enum": [
+            "contextual",
+            "vowel",
+            "consonant"
+          ]
+        },
+        "soulUrgeMethod": {
+          "const": "firstLastVowelAbsoluteDifference"
+        },
+        "soulUrgeZeroPolicy": {
+          "const": "retainZero"
+        },
+        "personalityMethod": {
+          "const": "firstLastConsonantAbsoluteDifference"
+        },
+        "personalityZeroPolicy": {
+          "const": "mapZeroToNine"
+        },
+        "soulUrge": {
+          "$ref": "#/$defs/letterChallenge"
+        },
+        "personality": {
+          "$ref": "#/$defs/letterChallenge"
+        }
+      },
+      "required": [
+        "rulesVersion",
+        "nameOrder",
+        "yRule",
+        "soulUrgeMethod",
+        "soulUrgeZeroPolicy",
+        "personalityMethod",
+        "personalityZeroPolicy",
+        "soulUrge",
+        "personality"
+      ]
+    },
+    "gridAxis": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "digits": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9
+          }
+        },
+        "status": {
+          "enum": [
+            "present",
+            "absent",
+            "partial"
+          ]
+        }
+      },
+      "required": [
+        "digits",
+        "status"
+      ]
+    },
+    "extended": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "birthNameGridAxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/gridAxis"
+          }
+        },
+        "currentName": {
+          "$ref": "#/$defs/nameNumbers"
+        },
+        "rationalThought": {
+          "$ref": "#/$defs/thought"
+        },
+        "nameSet": {
+          "$ref": "#/$defs/nameSet"
+        },
+        "nameChallenges": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "birthName": {
+              "$ref": "#/$defs/nameChallenge"
+            },
+            "currentName": {
+              "$ref": "#/$defs/nameChallenge"
+            }
+          },
+          "required": [
+            "birthName"
+          ]
+        }
+      },
+      "required": []
+    },
+    "nameData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/nameNumbers"
+        },
+        "extended": {
+          "$ref": "#/$defs/extended"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "birthData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "birth": {
+          "$ref": "#/$defs/birth"
+        },
+        "extended": {
+          "$ref": "#/$defs/extended"
+        }
+      },
+      "required": [
+        "birth"
+      ]
+    },
+    "cyclesData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cycles": {
+          "$ref": "#/$defs/cycles"
+        },
+        "extended": {
+          "$ref": "#/$defs/extended"
+        }
+      },
+      "required": [
+        "cycles"
+      ]
+    },
+    "essenceData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "essence": {
+          "$ref": "#/$defs/essence"
+        },
+        "extended": {
+          "$ref": "#/$defs/extended"
+        }
+      },
+      "required": [
+        "essence"
+      ]
+    },
+    "profileData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/nameNumbers"
+        },
+        "birth": {
+          "$ref": "#/$defs/birth"
+        },
+        "cycles": {
+          "$ref": "#/$defs/cycles"
+        },
+        "essence": {
+          "$ref": "#/$defs/essence"
+        },
+        "derived": {
+          "$ref": "#/$defs/derived"
+        },
+        "extended": {
+          "$ref": "#/$defs/extended"
+        }
+      },
+      "required": [
+        "name",
+        "birth",
+        "cycles",
+        "essence",
+        "derived"
+      ]
+    },
+    "namesData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "names": {
+          "$ref": "#/$defs/nameSet"
+        }
+      },
+      "required": [
+        "names"
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "operation": {
+          "const": "name"
+        },
+        "data": {
+          "$ref": "#/$defs/nameData"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "birth"
+        },
+        "data": {
+          "$ref": "#/$defs/birthData"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "cycles"
+        },
+        "data": {
+          "$ref": "#/$defs/cyclesData"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "essence"
+        },
+        "data": {
+          "$ref": "#/$defs/essenceData"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "profile"
+        },
+        "data": {
+          "$ref": "#/$defs/profileData"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "names"
+        },
+        "data": {
+          "$ref": "#/$defs/namesData"
+        }
+      }
+    }
+  ]
+}

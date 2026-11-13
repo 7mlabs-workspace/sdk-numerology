@@ -6,6 +6,8 @@
 
 [Trang SDK](../README.md) · [Chức năng & công thức](features-and-formulas.vi.md) · **Quy tắc tính** · [Nguồn kiểm chứng](formula-verification.vi.md)
 
+> SDK 1.1.0 bổ sung [đầu ra có lọc](payload-filtering.vi.md) với schema riêng; các bảng đường dẫn bên dưới mô tả payload đầy đủ. Công thức và quy tắc tính không đổi.
+
 ---
 
 <details open>
@@ -23,7 +25,7 @@
 
 </details>
 
-Mã quy tắc cơ bản: `pythagorean-7mlabs-1.0`. Mã này xác định các quy ước cụ thể bên dưới, không khẳng định mọi tác giả hoặc phần mềm Pythagorean đều dùng chung một tiêu chuẩn. Tài liệu này áp dụng cho SDK 1.0.0, gồm nhiều tên và phần mở rộng schema 1.1.
+Mã quy tắc cơ bản: `pythagorean-7mlabs-1.0`. Mã này xác định các quy ước cụ thể bên dưới, không khẳng định mọi tác giả hoặc phần mềm Pythagorean đều dùng chung một tiêu chuẩn. Tài liệu này áp dụng cho quy tắc không đổi từ SDK 1.0.0 đến 1.1.0, gồm nhiều tên và phần mở rộng schema 1.1.
 
 <a id="dau-vao"></a>
 <a id="doc-section-1"></a>

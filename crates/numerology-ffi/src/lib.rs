@@ -48,6 +48,37 @@ pub unsafe extern "C" fn numerology_calculate_json(input: *const c_char) -> *mut
     let bytes = unsafe { CStr::from_ptr(input) }.to_bytes();
     unsafe { numerology_calculate_json_len(bytes.as_ptr(), bytes.len()) }
 }
+/// Filtered result, same ownership and bounds as numerology_calculate_json_len.
+/// # Safety
+/// Input must be null or point to at least len readable bytes for the duration of the call.
+#[no_mangle]
+pub unsafe extern "C" fn numerology_calculate_filtered_json_len(
+    input: *const u8,
+    len: usize,
+) -> *mut c_char {
+    let result = std::panic::catch_unwind(|| {
+        if input.is_null() {
+            return failure("NULL_INPUT", "Input pointer is null");
+        }
+        if len > numerology_core::MAX_REQUEST_BYTES {
+            return failure("REQUEST_TOO_LARGE", "JSON request exceeds 16384 bytes");
+        }
+        let bytes = unsafe { std::slice::from_raw_parts(input, len) };
+        numerology_core::calculate_filtered_bytes(bytes)
+    })
+    .unwrap_or_else(|_| failure("INTERNAL_ERROR", "Calculation failed"));
+    owned(result)
+}
+/// # Safety
+/// Input must be null or point to a valid NUL-terminated string for the duration of this call.
+#[no_mangle]
+pub unsafe extern "C" fn numerology_calculate_filtered_json(input: *const c_char) -> *mut c_char {
+    if input.is_null() {
+        return unsafe { numerology_calculate_filtered_json_len(std::ptr::null(), 0) };
+    }
+    let bytes = unsafe { CStr::from_ptr(input) }.to_bytes();
+    unsafe { numerology_calculate_filtered_json_len(bytes.as_ptr(), bytes.len()) }
+}
 /// # Safety
 /// Pointer must be null or returned by a calculate function and not previously freed.
 #[no_mangle]
@@ -82,5 +113,35 @@ mod tests {
             .contains("NULL_INPUT"));
         unsafe { numerology_free(p) };
         assert!(unsafe { call(&vec![b' '; 16385]) }.contains("REQUEST_TOO_LARGE"));
+    }
+    #[test]
+    fn filtered_symbols_preserve_bounds_errors_ownership_and_abi() {
+        assert_eq!(numerology_abi_version(), 1);
+        for (data, code) in [
+            (vec![0xff], "INVALID_UTF8"),
+            (vec![b' '; 16385], "REQUEST_TOO_LARGE"),
+            (b"{}\0ignored".to_vec(), "INVALID_REQUEST"),
+        ] {
+            let p = unsafe { numerology_calculate_filtered_json_len(data.as_ptr(), data.len()) };
+            assert!(unsafe { CStr::from_ptr(p) }
+                .to_str()
+                .unwrap()
+                .contains(code));
+            unsafe { numerology_free(p) };
+        }
+        let p = unsafe { numerology_calculate_filtered_json(std::ptr::null()) };
+        assert!(unsafe { CStr::from_ptr(p) }
+            .to_str()
+            .unwrap()
+            .contains("NULL_INPUT"));
+        unsafe { numerology_free(p) };
+        // An oversized length is rejected without dereferencing even a tiny input buffer.
+        let byte = 0u8;
+        let p = unsafe { numerology_calculate_filtered_json_len(&byte, 16385) };
+        assert!(unsafe { CStr::from_ptr(p) }
+            .to_str()
+            .unwrap()
+            .contains("REQUEST_TOO_LARGE"));
+        unsafe { numerology_free(p) };
     }
 }

@@ -9,7 +9,7 @@ public sealed class NumerologyException : ArgumentException {
 }
 /// <summary>Offline, deterministic Pythagorean calculations using the bundled Rust engine.</summary>
 public static class Numerology {
- public const string Version="1.0.0";
+ public const string Version="1.1.0";
  static Numerology() {
   NativeLibrary.SetDllImportResolver(typeof(Numerology).Assembly, (name, assembly, searchPath) => {
    if(name!="sevenmlabs_numerology")return IntPtr.Zero;
@@ -22,6 +22,7 @@ public static class Numerology {
  }
  [DllImport("sevenmlabs_numerology",CallingConvention=CallingConvention.Cdecl)] private static extern uint numerology_abi_version();
  [DllImport("sevenmlabs_numerology",CallingConvention=CallingConvention.Cdecl)] private static extern IntPtr numerology_calculate_json_len(byte[] input, nuint length);
+ [DllImport("sevenmlabs_numerology",CallingConvention=CallingConvention.Cdecl)] private static extern IntPtr numerology_calculate_filtered_json_len(byte[] input, nuint length);
  [DllImport("sevenmlabs_numerology",CallingConvention=CallingConvention.Cdecl)] private static extern IntPtr numerology_version();
  [DllImport("sevenmlabs_numerology",CallingConvention=CallingConvention.Cdecl)] private static extern void numerology_free(IntPtr output);
  public static string CalculateJson(string request) {
@@ -35,6 +36,22 @@ public static class Numerology {
  }
  public static JsonElement Calculate(string request) {
   using var document=JsonDocument.Parse(CalculateJson(request));
+  var envelope=document.RootElement;
+  if (!envelope.GetProperty("ok").GetBoolean()) throw new NumerologyException(envelope.GetProperty("error"));
+  return envelope.GetProperty("result").Clone();
+ }
+ /// <summary>Opt-in filtered-1.0 output. This reduces disclosure and is not anonymization.</summary>
+ public static string CalculateFilteredJson(string request) {
+  ArgumentNullException.ThrowIfNull(request);
+  if (numerology_abi_version()!=1) throw new InvalidOperationException("Numerology ABI version differs from wrapper");
+  if (Marshal.PtrToStringUTF8(numerology_version())!=Version) throw new InvalidOperationException("Numerology engine version differs from wrapper");
+  var bytes=Encoding.UTF8.GetBytes(request);
+  var output=numerology_calculate_filtered_json_len(bytes, (nuint)bytes.Length);
+  if (output==IntPtr.Zero) throw new OutOfMemoryException("Numerology returned a null result");
+  try {return Marshal.PtrToStringUTF8(output)!;} finally {numerology_free(output);}
+ }
+ public static JsonElement CalculateFiltered(string request) {
+  using var document=JsonDocument.Parse(CalculateFilteredJson(request));
   var envelope=document.RootElement;
   if (!envelope.GetProperty("ok").GetBoolean()) throw new NumerologyException(envelope.GetProperty("error"));
   return envelope.GetProperty("result").Clone();

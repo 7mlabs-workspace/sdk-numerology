@@ -39,7 +39,7 @@
 
 SDK thần số học Pythagorean do **7mlabs phát triển**, tính ngoại tuyến bằng một lõi Rust dùng chung cho Node.js/TypeScript, Python, .NET và giao diện C. Giấy phép MIT — Copyright (c) 2026 7mlabs.
 
-Phiên bản SDK: **1.0.0**. Bản này gồm các chức năng nhiều tên và phần mở rộng tùy chọn mô tả bên dưới. Tệp gói chính thức và nền tảng native đã kiểm chứng được ghi trong bản kê phát hành. Đây là SDK độc lập với hợp đồng JSON riêng, không phải bản thay thế trực tiếp dịch vụ HTTP cũ. Phép tính chạy ngay trong tiến trình ứng dụng, không cần máy chủ engine hay Internet.
+Phiên bản đang chuẩn bị: **1.1.0 — chưa phát hành**. Bản này gồm các chức năng nhiều tên và phần mở rộng tùy chọn mô tả bên dưới. Tệp gói chính thức và nền tảng native đã kiểm chứng được ghi trong bản kê phát hành. Đây là SDK độc lập với hợp đồng JSON riêng, không phải bản thay thế trực tiếp dịch vụ HTTP cũ. Phép tính chạy ngay trong tiến trình ứng dụng, không cần máy chủ engine hay Internet.
 
 <a id="features"></a>
 
@@ -58,9 +58,16 @@ Hiện chỉ hỗ trợ **Pythagorean**. Đầu vào/đầu ra ghi `system=pytha
 
 Các phần mở rộng trong **1.0.0**, cần bật rõ: số rút gọn hiển thị bên cạnh master, Tư duy, ba Giai đoạn, độ phủ trục biểu đồ, tên thường gọi riêng, biểu đồ kết hợp, danh sách tên trong hồ sơ và hai Thử thách theo chữ đầu–cuối có nguồn công thức. Chưa thêm Thử thách Sứ mệnh và “Năng lực trưởng thành” theo website đối chiếu vì chưa xác minh được cách tính.
 
+## Đầu ra có lọc trong 1.1.0
+
+Ưu tiên `calculateFiltered` cho tích hợp mới cần hạn chế dữ liệu nguồn. Hàm này giữ tổng gốc, bước rút gọn, master và số rút gọn của các chỉ số được phép xuất; Thái độ/Tư duy có ngoại lệ trace được ghi rõ. Các hàm `calculate` hiện tại vẫn trả payload đầy đủ như 1.0.0, có thể chứa tên và ngày sinh.
+
+[Xem chính sách từng trường, giới hạn và ví dụ](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/payload-filtering.vi.md). Đầu ra có lọc **không phải dữ liệu ẩn danh**. Các ví dụ hàm mới bên dưới cần bản candidate 1.1.0 đã dựng; gói đang công khai chưa được thay đổi trong bước chuẩn bị này.
+
 ## Tài liệu tiếng Việt
 
 - [Chức năng và công thức](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/features-and-formulas.vi.md): đầu vào, từng chỉ số, phép tính cụ thể và vị trí trong payload.
+- [Payload có lọc](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/payload-filtering.vi.md): trường giữ/bỏ, tổng gốc và trace ngoại lệ, tương thích, các hàm mới.
 - [Quy tắc chi tiết](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/rules.vi.md): giữ master, chữ Y, chuẩn hóa/thứ tự tên, tuổi và giới hạn nhóm ghép.
 - [Kiểm chứng công thức](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/formula-verification.vi.md): nguồn, ví dụ đã công bố, cách xử lý 0 và phương pháp chưa xác minh.
 - [Yêu cầu giả lập](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/examples/profile-request.json) và [phản hồi thật của engine](https://github.com/7mlabs-workspace/sdk-numerology/blob/main/docs/examples/profile-response.json): ví dụ có các bước rút gọn, tên thường gọi và một nhóm ghép.
@@ -88,16 +95,16 @@ Tên gồm given, middle, family được gán rõ để bên tích hợp chủ 
 ### Node.js / TypeScript
 
 ```js
-const { calculate } = require('@7mlabs/numerology');
-const result = calculate({ operation: 'birth', birthDate: '2000-02-29' });
+const { calculate, calculateFiltered } = require('@7mlabs/numerology');
+const result = calculateFiltered({ operation: 'birth', birthDate: '2000-02-29' });
 console.log(result.data.birth.lifePath);
 ```
 
 ### Python
 
 ```python
-from sevenmlabs_numerology import calculate
-result = calculate({"operation": "birth", "birthDate": "2000-02-29"})
+from sevenmlabs_numerology import calculate, calculate_filtered
+result = calculate_filtered({"operation": "birth", "birthDate": "2000-02-29"})
 print(result["data"]["birth"]["lifePath"])
 ```
 
@@ -105,7 +112,7 @@ print(result["data"]["birth"]["lifePath"])
 
 ```csharp
 using SevenMLabs.Numerology;
-var result = Numerology.Calculate("""{"operation":"birth","birthDate":"2000-02-29"}""");
+var result = Numerology.CalculateFiltered("""{"operation":"birth","birthDate":"2000-02-29"}""");
 Console.WriteLine(result.GetProperty("data").GetProperty("birth").GetProperty("lifePath"));
 ```
 
@@ -116,7 +123,7 @@ Các binding có hàm JSON thô `calculateJson`, `calculate_json`, `CalculateJso
 
 ## Payload mở rộng tùy chọn
 
-Bỏ `extensions` để giữ payload schema 1.0, giá trị và API Rust Request cũ. Truyền đối tượng để chọn các phần bổ sung schema 1.1:
+Phần này mô tả hàm đầy đủ `calculate`. Bỏ `extensions` để giữ payload schema 1.0, giá trị và API Rust Request cũ. Truyền đối tượng để chọn các phần bổ sung schema 1.1:
 
 ```js
 const result = calculate({

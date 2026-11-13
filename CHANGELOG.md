@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.0 — Unreleased / Chưa phát hành
+
+- Thêm đầu ra `filtered-1.0` dùng chung từ Rust qua Node.js/TypeScript, Python, .NET, C ABI v1 và CLI `--filtered`; các hàm đầy đủ cũ giữ nguyên.
+- Giữ tổng gốc, từng bước rút gọn, master và số hiển thị rút gọn. Riêng Thái độ/Tư duy lược trace để chặn các đường suy ngược ngày sinh đã xác định; vẫn giữ kết quả.
+- Lọc tên/chữ cái, nguồn ngày sinh, biểu đồ nguồn và năm lịch theo tuổi; ánh xạ ID tên/nhóm sang nhãn cục bộ, tái tạo cảnh báo không kèm ID.
+- Khai báo quy tắc hiệu lực theo Number; schema JSON đóng và kiểu TypeScript riêng. Không thay công thức hoặc chuẩn hóa tên Việt, không thêm lựa chọn cách tính/SVG.
+- Bổ sung kiểm thử tương thích, trace, lọc trường, tái nhận diện đã biết, nhóm ghép, ca biên và consumer các gói. Đầu ra có lọc giảm dữ liệu, không phải dữ liệu ẩn danh.
+
+Additive filtered APIs and versioned output schema. Existing full-output payloads retain their shape and arithmetic; engineVersion follows 1.1.0. The filtered contract preserves eligible raw totals/reduction steps, explicitly withholds two date-revealing traces, and never claims anonymization.
+
 ## 1.0.0 — 2026-11-11
 
 Bản SDK thần số học Pythagorean độc lập đầu tiên của 7mlabs, giấy phép MIT.

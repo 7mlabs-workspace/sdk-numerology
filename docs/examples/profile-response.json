@@ -1,20 +1,41 @@
 {
-  "ok": true,
-  "result": {
-    "data": {
-      "birth": {
-        "attitude": {
-          "isMaster": false,
-          "karmicDebt": null,
-          "reducedValue": 4,
-          "root": 31,
-          "steps": [
-            31,
-            4
-          ],
-          "value": 4
-        },
-        "birthDay": {
+  "data": {
+    "birth": {
+      "attitude": {
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 4,
+        "root": 31,
+        "steps": [
+          31,
+          4
+        ],
+        "value": 4
+      },
+      "birthDay": {
+        "isMaster": true,
+        "karmicDebt": null,
+        "reducedValue": 2,
+        "root": 29,
+        "steps": [
+          29,
+          11
+        ],
+        "value": 11
+      },
+      "birthGrid": {
+        "1": 0,
+        "2": 3,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 1
+      },
+      "components": {
+        "day": {
           "isMaster": true,
           "karmicDebt": null,
           "reducedValue": 2,
@@ -25,505 +46,119 @@
           ],
           "value": 11
         },
-        "birthGrid": {
-          "1": 0,
-          "2": 3,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0,
-          "8": 0,
-          "9": 1
-        },
-        "components": {
-          "day": {
-            "isMaster": true,
-            "karmicDebt": null,
-            "reducedValue": 2,
-            "root": 29,
-            "steps": [
-              29,
-              11
-            ],
-            "value": 11
-          },
-          "month": {
-            "isMaster": false,
-            "karmicDebt": null,
-            "reducedValue": 2,
-            "root": 2,
-            "steps": [
-              2
-            ],
-            "value": 2
-          },
-          "year": {
-            "isMaster": false,
-            "karmicDebt": null,
-            "reducedValue": 2,
-            "root": 2000,
-            "steps": [
-              2000,
-              2
-            ],
-            "value": 2
-          }
-        },
-        "lifePath": {
+        "month": {
           "isMaster": false,
-          "karmicDebt": null,
-          "reducedValue": 6,
-          "root": 15,
-          "steps": [
-            15,
-            6
-          ],
-          "value": 6
-        }
-      },
-      "cycles": {
-        "challenges": [
-          {
-            "isMaster": false,
-            "karmicDebt": null,
-            "reducedValue": 0,
-            "root": 0,
-            "steps": [
-              0
-            ],
-            "value": 0
-          },
-          {
-            "isMaster": false,
-            "karmicDebt": null,
-            "reducedValue": 0,
-            "root": 0,
-            "steps": [
-              0
-            ],
-            "value": 0
-          },
-          {
-            "isMaster": false,
-            "karmicDebt": null,
-            "reducedValue": 0,
-            "root": 0,
-            "steps": [
-              0
-            ],
-            "value": 0
-          },
-          {
-            "isMaster": false,
-            "karmicDebt": null,
-            "reducedValue": 0,
-            "root": 0,
-            "steps": [
-              0
-            ],
-            "value": 0
-          }
-        ],
-        "personalDay": {
-          "isMaster": false,
-          "karmicDebt": null,
-          "reducedValue": 9,
-          "root": 18,
-          "steps": [
-            18,
-            9
-          ],
-          "value": 9
-        },
-        "personalMonth": {
-          "isMaster": false,
-          "karmicDebt": 16,
-          "reducedValue": 7,
-          "root": 16,
-          "steps": [
-            16,
-            7
-          ],
-          "value": 7
-        },
-        "personalYear": {
-          "isMaster": false,
-          "karmicDebt": null,
-          "reducedValue": 5,
-          "root": 5,
-          "steps": [
-            5
-          ],
-          "value": 5
-        },
-        "pinnacles": [
-          {
-            "endAge": 30,
-            "number": {
-              "isMaster": false,
-              "karmicDebt": null,
-              "reducedValue": 4,
-              "root": 4,
-              "steps": [
-                4
-              ],
-              "value": 4
-            },
-            "phase": 1,
-            "startAge": 0
-          },
-          {
-            "endAge": 39,
-            "number": {
-              "isMaster": false,
-              "karmicDebt": null,
-              "reducedValue": 4,
-              "root": 4,
-              "steps": [
-                4
-              ],
-              "value": 4
-            },
-            "phase": 2,
-            "startAge": 31
-          },
-          {
-            "endAge": 48,
-            "number": {
-              "isMaster": false,
-              "karmicDebt": null,
-              "reducedValue": 8,
-              "root": 8,
-              "steps": [
-                8
-              ],
-              "value": 8
-            },
-            "phase": 3,
-            "startAge": 40
-          },
-          {
-            "endAge": null,
-            "number": {
-              "isMaster": false,
-              "karmicDebt": null,
-              "reducedValue": 4,
-              "root": 4,
-              "steps": [
-                4
-              ],
-              "value": 4
-            },
-            "phase": 4,
-            "startAge": 49
-          }
-        ],
-        "universalDay": {
-          "isMaster": false,
-          "karmicDebt": 14,
-          "reducedValue": 5,
-          "root": 14,
-          "steps": [
-            14,
-            5
-          ],
-          "value": 5
-        },
-        "universalMonth": {
-          "isMaster": false,
-          "karmicDebt": null,
-          "reducedValue": 3,
-          "root": 12,
-          "steps": [
-            12,
-            3
-          ],
-          "value": 3
-        },
-        "universalYear": {
-          "isMaster": false,
-          "karmicDebt": null,
-          "reducedValue": 1,
-          "root": 2026,
-          "steps": [
-            2026,
-            10,
-            1
-          ],
-          "value": 1
-        }
-      },
-      "derived": {
-        "lifePathExpressionBridge": 1,
-        "maturity": {
-          "isMaster": true,
           "karmicDebt": null,
           "reducedValue": 2,
-          "root": 11,
+          "root": 2,
           "steps": [
-            11
+            2
           ],
-          "value": 11
+          "value": 2
         },
-        "soulPersonalityBridge": 2
-      },
-      "essence": {
-        "years": [
-          {
-            "age": 0,
-            "birthYearPlusAge": 2000,
-            "essence": {
-              "isMaster": false,
-              "karmicDebt": null,
-              "reducedValue": 4,
-              "root": 4,
-              "steps": [
-                4
-              ],
-              "value": 4
-            },
-            "family": {
-              "letter": "L",
-              "value": 3
-            },
-            "given": {
-              "letter": "A",
-              "value": 1
-            },
-            "middle": {
-              "letter": null,
-              "value": 0
-            }
-          }
-        ]
-      },
-      "extended": {
-        "birthGridAxes": [
-          {
-            "digits": [
-              1,
-              2,
-              3
-            ],
-            "status": "partial"
-          },
-          {
-            "digits": [
-              4,
-              5,
-              6
-            ],
-            "status": "absent"
-          },
-          {
-            "digits": [
-              7,
-              8,
-              9
-            ],
-            "status": "partial"
-          },
-          {
-            "digits": [
-              1,
-              4,
-              7
-            ],
-            "status": "absent"
-          },
-          {
-            "digits": [
-              2,
-              5,
-              8
-            ],
-            "status": "partial"
-          },
-          {
-            "digits": [
-              3,
-              6,
-              9
-            ],
-            "status": "partial"
-          },
-          {
-            "digits": [
-              1,
-              5,
-              9
-            ],
-            "status": "partial"
-          },
-          {
-            "digits": [
-              3,
-              5,
-              7
-            ],
-            "status": "absent"
-          }
-        ],
-        "birthNameGridAxes": [
-          {
-            "digits": [
-              1,
-              2,
-              3
-            ],
-            "status": "partial"
-          },
-          {
-            "digits": [
-              4,
-              5,
-              6
-            ],
-            "status": "partial"
-          },
-          {
-            "digits": [
-              7,
-              8,
-              9
-            ],
-            "status": "absent"
-          },
-          {
-            "digits": [
-              1,
-              4,
-              7
-            ],
-            "status": "partial"
-          },
-          {
-            "digits": [
-              2,
-              5,
-              8
-            ],
-            "status": "partial"
-          },
-          {
-            "digits": [
-              3,
-              6,
-              9
-            ],
-            "status": "partial"
-          },
-          {
-            "digits": [
-              1,
-              5,
-              9
-            ],
-            "status": "partial"
-          },
-          {
-            "digits": [
-              3,
-              5,
-              7
-            ],
-            "status": "partial"
-          }
-        ],
-        "combinedGrid": {
-          "axes": [
-            {
-              "digits": [
-                1,
-                2,
-                3
-              ],
-              "status": "partial"
-            },
-            {
-              "digits": [
-                4,
-                5,
-                6
-              ],
-              "status": "partial"
-            },
-            {
-              "digits": [
-                7,
-                8,
-                9
-              ],
-              "status": "partial"
-            },
-            {
-              "digits": [
-                1,
-                4,
-                7
-              ],
-              "status": "present"
-            },
-            {
-              "digits": [
-                2,
-                5,
-                8
-              ],
-              "status": "partial"
-            },
-            {
-              "digits": [
-                3,
-                6,
-                9
-              ],
-              "status": "partial"
-            },
-            {
-              "digits": [
-                1,
-                5,
-                9
-              ],
-              "status": "partial"
-            },
-            {
-              "digits": [
-                3,
-                5,
-                7
-              ],
-              "status": "partial"
-            }
+        "year": {
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 2,
+          "root": 2000,
+          "steps": [
+            2000,
+            2
           ],
-          "frequency": {
-            "1": 1,
-            "2": 3,
-            "3": 0,
-            "4": 1,
-            "5": 0,
-            "6": 0,
-            "7": 1,
-            "8": 0,
-            "9": 1
-          },
-          "nameFrequency": {
-            "1": 1,
-            "2": 0,
-            "3": 0,
-            "4": 1,
-            "5": 0,
-            "6": 0,
-            "7": 1,
-            "8": 0,
-            "9": 0
-          },
-          "nameSource": "currentName"
+          "value": 2
+        }
+      },
+      "lifePath": {
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 6,
+        "root": 15,
+        "steps": [
+          15,
+          6
+        ],
+        "value": 6
+      }
+    },
+    "cycles": {
+      "challenges": [
+        {
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 0,
+          "root": 0,
+          "steps": [
+            0
+          ],
+          "value": 0
         },
-        "currentName": {
-          "balance": {
+        {
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 0,
+          "root": 0,
+          "steps": [
+            0
+          ],
+          "value": 0
+        },
+        {
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 0,
+          "root": 0,
+          "steps": [
+            0
+          ],
+          "value": 0
+        },
+        {
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 0,
+          "root": 0,
+          "steps": [
+            0
+          ],
+          "value": 0
+        }
+      ],
+      "personalDay": {
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 9,
+        "root": 18,
+        "steps": [
+          18,
+          9
+        ],
+        "value": 9
+      },
+      "personalMonth": {
+        "isMaster": false,
+        "karmicDebt": 16,
+        "reducedValue": 7,
+        "root": 16,
+        "steps": [
+          16,
+          7
+        ],
+        "value": 7
+      },
+      "personalYear": {
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 5,
+        "root": 5,
+        "steps": [
+          5
+        ],
+        "value": 5
+      },
+      "pinnacles": [
+        {
+          "endAge": 30,
+          "number": {
             "isMaster": false,
             "karmicDebt": null,
             "reducedValue": 4,
@@ -533,591 +168,359 @@
             ],
             "value": 4
           },
-          "capstone": "P",
-          "cornerstone": "M",
-          "expression": {
-            "isMaster": false,
-            "karmicDebt": null,
-            "reducedValue": 3,
-            "root": 12,
-            "steps": [
-              12,
-              3
-            ],
-            "value": 3
-          },
-          "familyName": {
-            "isMaster": false,
-            "karmicDebt": null,
-            "reducedValue": 0,
-            "root": 0,
-            "steps": [
-              0
-            ],
-            "value": 0
-          },
-          "frequency": {
-            "1": 1,
-            "2": 0,
-            "3": 0,
-            "4": 1,
-            "5": 0,
-            "6": 0,
-            "7": 1,
-            "8": 0,
-            "9": 0
-          },
-          "givenName": {
-            "isMaster": false,
-            "karmicDebt": null,
-            "reducedValue": 3,
-            "root": 12,
-            "steps": [
-              12,
-              3
-            ],
-            "value": 3
-          },
-          "hiddenPassion": [
-            1,
-            4,
-            7
-          ],
-          "missingNumbers": [
-            2,
-            3,
-            5,
-            6,
-            8,
-            9
-          ],
-          "normalizedName": {
-            "family": "",
-            "given": "MAP",
-            "middle": ""
-          },
-          "personality": {
-            "isMaster": true,
-            "karmicDebt": null,
-            "reducedValue": 2,
-            "root": 11,
-            "steps": [
-              11
-            ],
-            "value": 11
-          },
-          "soulUrge": {
-            "isMaster": false,
-            "karmicDebt": null,
-            "reducedValue": 1,
-            "root": 1,
-            "steps": [
-              1
-            ],
-            "value": 1
-          },
-          "subconsciousSelf": 3
+          "phase": 1,
+          "startAge": 0
         },
-        "nameChallenges": {
-          "birthName": {
-            "nameOrder": "familyMiddleGiven",
-            "orderedText": "LE AN",
-            "personality": {
-              "difference": 2,
-              "first": {
-                "letter": "L",
-                "value": 3
-              },
-              "last": {
-                "letter": "N",
-                "value": 5
-              },
-              "status": "available",
-              "value": 2
-            },
-            "personalityMethod": "firstLastConsonantAbsoluteDifference",
-            "personalityZeroPolicy": "mapZeroToNine",
-            "rulesVersion": "pythagorean-7mlabs-name-challenges-1.0",
-            "soulUrge": {
-              "difference": 4,
-              "first": {
-                "letter": "E",
-                "value": 5
-              },
-              "last": {
-                "letter": "A",
-                "value": 1
-              },
-              "status": "available",
-              "value": 4
-            },
-            "soulUrgeMethod": "firstLastVowelAbsoluteDifference",
-            "soulUrgeZeroPolicy": "retainZero",
-            "yRule": "contextual"
+        {
+          "endAge": 39,
+          "number": {
+            "isMaster": false,
+            "karmicDebt": null,
+            "reducedValue": 4,
+            "root": 4,
+            "steps": [
+              4
+            ],
+            "value": 4
           },
-          "currentName": {
-            "nameOrder": "familyMiddleGiven",
-            "orderedText": "MAP",
-            "personality": {
-              "difference": 3,
-              "first": {
-                "letter": "M",
-                "value": 4
-              },
-              "last": {
-                "letter": "P",
-                "value": 7
-              },
-              "status": "available",
-              "value": 3
-            },
-            "personalityMethod": "firstLastConsonantAbsoluteDifference",
-            "personalityZeroPolicy": "mapZeroToNine",
-            "rulesVersion": "pythagorean-7mlabs-name-challenges-1.0",
-            "soulUrge": {
-              "difference": 0,
-              "first": {
-                "letter": "A",
-                "value": 1
-              },
-              "last": {
-                "letter": "A",
-                "value": 1
-              },
-              "status": "available",
-              "value": 0
-            },
-            "soulUrgeMethod": "firstLastVowelAbsoluteDifference",
-            "soulUrgeZeroPolicy": "retainZero",
-            "yRule": "contextual"
-          }
+          "phase": 2,
+          "startAge": 31
         },
-        "nameSet": {
-          "combinations": [
-            {
-              "id": "given-and-alias",
-              "method": "concatenateSelectedParts",
-              "numbers": {
-                "balance": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 5,
-                  "root": 5,
-                  "steps": [
-                    5
-                  ],
-                  "value": 5
-                },
-                "capstone": "P",
-                "cornerstone": "A",
-                "expression": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 9,
-                  "root": 18,
-                  "steps": [
-                    18,
-                    9
-                  ],
-                  "value": 9
-                },
-                "familyName": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 0,
-                  "root": 0,
-                  "steps": [
-                    0
-                  ],
-                  "value": 0
-                },
-                "frequency": {
-                  "1": 2,
-                  "2": 0,
-                  "3": 0,
-                  "4": 1,
-                  "5": 1,
-                  "6": 0,
-                  "7": 1,
-                  "8": 0,
-                  "9": 0
-                },
-                "givenName": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 9,
-                  "root": 18,
-                  "steps": [
-                    18,
-                    9
-                  ],
-                  "value": 9
-                },
-                "hiddenPassion": [
-                  1
-                ],
-                "missingNumbers": [
-                  2,
-                  3,
-                  6,
-                  8,
-                  9
-                ],
-                "normalizedName": {
-                  "family": "",
-                  "given": "AN MAP",
-                  "middle": ""
-                },
-                "personality": {
-                  "isMaster": false,
-                  "karmicDebt": 16,
-                  "reducedValue": 7,
-                  "root": 16,
-                  "steps": [
-                    16,
-                    7
-                  ],
-                  "value": 7
-                },
-                "soulUrge": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 2,
-                  "root": 2,
-                  "steps": [
-                    2
-                  ],
-                  "value": 2
-                },
-                "subconsciousSelf": 4
-              },
-              "rationalThought": {
-                "nameSource": "selectedText",
-                "number": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 2,
-                  "root": 47,
-                  "steps": [
-                    47,
-                    11,
-                    2
-                  ],
-                  "value": 2
-                }
-              },
-              "reduction": "wholeNameSum",
-              "sources": [
-                {
-                  "nameId": "birth",
-                  "part": "given",
-                  "text": "AN"
-                },
-                {
-                  "nameId": "alias",
-                  "part": "full",
-                  "text": "MAP"
-                }
-              ]
-            }
-          ],
-          "names": [
-            {
-              "id": "birth",
-              "numbers": {
-                "balance": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 4,
-                  "root": 4,
-                  "steps": [
-                    4
-                  ],
-                  "value": 4
-                },
-                "capstone": "N",
-                "cornerstone": "A",
-                "expression": {
-                  "isMaster": false,
-                  "karmicDebt": 14,
-                  "reducedValue": 5,
-                  "root": 14,
-                  "steps": [
-                    14,
-                    5
-                  ],
-                  "value": 5
-                },
-                "familyName": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 8,
-                  "root": 8,
-                  "steps": [
-                    8
-                  ],
-                  "value": 8
-                },
-                "frequency": {
-                  "1": 1,
-                  "2": 0,
-                  "3": 1,
-                  "4": 0,
-                  "5": 2,
-                  "6": 0,
-                  "7": 0,
-                  "8": 0,
-                  "9": 0
-                },
-                "givenName": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 6,
-                  "root": 6,
-                  "steps": [
-                    6
-                  ],
-                  "value": 6
-                },
-                "hiddenPassion": [
-                  5
-                ],
-                "missingNumbers": [
-                  2,
-                  4,
-                  6,
-                  7,
-                  8,
-                  9
-                ],
-                "normalizedName": {
-                  "family": "LE",
-                  "given": "AN",
-                  "middle": ""
-                },
-                "personality": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 8,
-                  "root": 8,
-                  "steps": [
-                    8
-                  ],
-                  "value": 8
-                },
-                "soulUrge": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 6,
-                  "root": 6,
-                  "steps": [
-                    6
-                  ],
-                  "value": 6
-                },
-                "subconsciousSelf": 3
-              },
-              "rationalThought": {
-                "nameSource": "given",
-                "number": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 8,
-                  "root": 35,
-                  "steps": [
-                    35,
-                    8
-                  ],
-                  "value": 8
-                }
-              },
-              "source": "profile.birthName"
-            },
-            {
-              "id": "alias",
-              "numbers": {
-                "balance": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 4,
-                  "root": 4,
-                  "steps": [
-                    4
-                  ],
-                  "value": 4
-                },
-                "capstone": "P",
-                "cornerstone": "M",
-                "expression": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 3,
-                  "root": 12,
-                  "steps": [
-                    12,
-                    3
-                  ],
-                  "value": 3
-                },
-                "familyName": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 0,
-                  "root": 0,
-                  "steps": [
-                    0
-                  ],
-                  "value": 0
-                },
-                "frequency": {
-                  "1": 1,
-                  "2": 0,
-                  "3": 0,
-                  "4": 1,
-                  "5": 0,
-                  "6": 0,
-                  "7": 1,
-                  "8": 0,
-                  "9": 0
-                },
-                "givenName": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 3,
-                  "root": 12,
-                  "steps": [
-                    12,
-                    3
-                  ],
-                  "value": 3
-                },
-                "hiddenPassion": [
-                  1,
-                  4,
-                  7
-                ],
-                "missingNumbers": [
-                  2,
-                  3,
-                  5,
-                  6,
-                  8,
-                  9
-                ],
-                "normalizedName": {
-                  "family": "",
-                  "given": "MAP",
-                  "middle": ""
-                },
-                "personality": {
-                  "isMaster": true,
-                  "karmicDebt": null,
-                  "reducedValue": 2,
-                  "root": 11,
-                  "steps": [
-                    11
-                  ],
-                  "value": 11
-                },
-                "soulUrge": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 1,
-                  "root": 1,
-                  "steps": [
-                    1
-                  ],
-                  "value": 1
-                },
-                "subconsciousSelf": 3
-              },
-              "rationalThought": {
-                "nameSource": "given",
-                "number": {
-                  "isMaster": false,
-                  "karmicDebt": null,
-                  "reducedValue": 5,
-                  "root": 41,
-                  "steps": [
-                    41,
-                    5
-                  ],
-                  "value": 5
-                }
-              },
-              "source": "input"
-            }
-          ],
-          "rulesVersion": "pythagorean-7mlabs-names-1.0"
-        },
-        "periodCycles": [
-          {
-            "endAge": 30,
-            "number": {
-              "isMaster": false,
-              "karmicDebt": null,
-              "reducedValue": 2,
-              "root": 2,
-              "steps": [
-                2
-              ],
-              "value": 2
-            },
-            "phase": 1,
-            "source": "birthMonth",
-            "startAge": 0
-          },
-          {
-            "endAge": 57,
-            "number": {
-              "isMaster": true,
-              "karmicDebt": null,
-              "reducedValue": 2,
-              "root": 29,
-              "steps": [
-                29,
-                11
-              ],
-              "value": 11
-            },
-            "phase": 2,
-            "source": "birthDay",
-            "startAge": 31
-          },
-          {
-            "endAge": null,
-            "number": {
-              "isMaster": false,
-              "karmicDebt": null,
-              "reducedValue": 2,
-              "root": 2000,
-              "steps": [
-                2000,
-                2
-              ],
-              "value": 2
-            },
-            "phase": 3,
-            "source": "birthYear",
-            "startAge": 58
-          }
-        ],
-        "rationalThought": {
-          "nameSource": "birthName.given",
+        {
+          "endAge": 48,
           "number": {
             "isMaster": false,
             "karmicDebt": null,
             "reducedValue": 8,
-            "root": 35,
+            "root": 8,
             "steps": [
-              35,
               8
             ],
             "value": 8
+          },
+          "phase": 3,
+          "startAge": 40
+        },
+        {
+          "endAge": null,
+          "number": {
+            "isMaster": false,
+            "karmicDebt": null,
+            "reducedValue": 4,
+            "root": 4,
+            "steps": [
+              4
+            ],
+            "value": 4
+          },
+          "phase": 4,
+          "startAge": 49
+        }
+      ],
+      "universalDay": {
+        "isMaster": false,
+        "karmicDebt": 14,
+        "reducedValue": 5,
+        "root": 14,
+        "steps": [
+          14,
+          5
+        ],
+        "value": 5
+      },
+      "universalMonth": {
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 3,
+        "root": 12,
+        "steps": [
+          12,
+          3
+        ],
+        "value": 3
+      },
+      "universalYear": {
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 1,
+        "root": 2026,
+        "steps": [
+          2026,
+          10,
+          1
+        ],
+        "value": 1
+      }
+    },
+    "derived": {
+      "lifePathExpressionBridge": 1,
+      "maturity": {
+        "isMaster": true,
+        "karmicDebt": null,
+        "reducedValue": 2,
+        "root": 11,
+        "steps": [
+          11
+        ],
+        "value": 11
+      },
+      "soulPersonalityBridge": 2
+    },
+    "essence": {
+      "years": [
+        {
+          "age": 0,
+          "birthYearPlusAge": 2000,
+          "essence": {
+            "isMaster": false,
+            "karmicDebt": null,
+            "reducedValue": 4,
+            "root": 4,
+            "steps": [
+              4
+            ],
+            "value": 4
+          },
+          "family": {
+            "letter": "L",
+            "value": 3
+          },
+          "given": {
+            "letter": "A",
+            "value": 1
+          },
+          "middle": {
+            "letter": null,
+            "value": 0
           }
         }
+      ]
+    },
+    "extended": {
+      "birthGridAxes": [
+        {
+          "digits": [
+            1,
+            2,
+            3
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            4,
+            5,
+            6
+          ],
+          "status": "absent"
+        },
+        {
+          "digits": [
+            7,
+            8,
+            9
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            1,
+            4,
+            7
+          ],
+          "status": "absent"
+        },
+        {
+          "digits": [
+            2,
+            5,
+            8
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            3,
+            6,
+            9
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            1,
+            5,
+            9
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            3,
+            5,
+            7
+          ],
+          "status": "absent"
+        }
+      ],
+      "birthNameGridAxes": [
+        {
+          "digits": [
+            1,
+            2,
+            3
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            4,
+            5,
+            6
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            7,
+            8,
+            9
+          ],
+          "status": "absent"
+        },
+        {
+          "digits": [
+            1,
+            4,
+            7
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            2,
+            5,
+            8
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            3,
+            6,
+            9
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            1,
+            5,
+            9
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            3,
+            5,
+            7
+          ],
+          "status": "partial"
+        }
+      ],
+      "combinedGrid": {
+        "axes": [
+          {
+            "digits": [
+              1,
+              2,
+              3
+            ],
+            "status": "partial"
+          },
+          {
+            "digits": [
+              4,
+              5,
+              6
+            ],
+            "status": "partial"
+          },
+          {
+            "digits": [
+              7,
+              8,
+              9
+            ],
+            "status": "partial"
+          },
+          {
+            "digits": [
+              1,
+              4,
+              7
+            ],
+            "status": "present"
+          },
+          {
+            "digits": [
+              2,
+              5,
+              8
+            ],
+            "status": "partial"
+          },
+          {
+            "digits": [
+              3,
+              6,
+              9
+            ],
+            "status": "partial"
+          },
+          {
+            "digits": [
+              1,
+              5,
+              9
+            ],
+            "status": "partial"
+          },
+          {
+            "digits": [
+              3,
+              5,
+              7
+            ],
+            "status": "partial"
+          }
+        ],
+        "frequency": {
+          "1": 1,
+          "2": 3,
+          "3": 0,
+          "4": 1,
+          "5": 0,
+          "6": 0,
+          "7": 1,
+          "8": 0,
+          "9": 1
+        },
+        "nameFrequency": {
+          "1": 1,
+          "2": 0,
+          "3": 0,
+          "4": 1,
+          "5": 0,
+          "6": 0,
+          "7": 1,
+          "8": 0,
+          "9": 0
+        },
+        "nameSource": "currentName"
       },
-      "name": {
+      "currentName": {
         "balance": {
           "isMaster": false,
           "karmicDebt": null,
@@ -1128,105 +531,699 @@
           ],
           "value": 4
         },
-        "capstone": "N",
-        "cornerstone": "A",
+        "capstone": "P",
+        "cornerstone": "M",
         "expression": {
           "isMaster": false,
-          "karmicDebt": 14,
-          "reducedValue": 5,
-          "root": 14,
+          "karmicDebt": null,
+          "reducedValue": 3,
+          "root": 12,
           "steps": [
-            14,
-            5
+            12,
+            3
           ],
-          "value": 5
+          "value": 3
         },
         "familyName": {
           "isMaster": false,
           "karmicDebt": null,
-          "reducedValue": 8,
-          "root": 8,
+          "reducedValue": 0,
+          "root": 0,
           "steps": [
-            8
+            0
           ],
-          "value": 8
+          "value": 0
         },
         "frequency": {
           "1": 1,
           "2": 0,
-          "3": 1,
-          "4": 0,
-          "5": 2,
+          "3": 0,
+          "4": 1,
+          "5": 0,
           "6": 0,
-          "7": 0,
+          "7": 1,
           "8": 0,
           "9": 0
         },
         "givenName": {
           "isMaster": false,
           "karmicDebt": null,
-          "reducedValue": 6,
-          "root": 6,
+          "reducedValue": 3,
+          "root": 12,
           "steps": [
-            6
+            12,
+            3
           ],
-          "value": 6
+          "value": 3
         },
         "hiddenPassion": [
-          5
+          1,
+          4,
+          7
         ],
         "missingNumbers": [
           2,
-          4,
+          3,
+          5,
           6,
-          7,
           8,
           9
         ],
         "normalizedName": {
-          "family": "LE",
-          "given": "AN",
+          "family": "",
+          "given": "MAP",
           "middle": ""
         },
         "personality": {
-          "isMaster": false,
+          "isMaster": true,
           "karmicDebt": null,
-          "reducedValue": 8,
-          "root": 8,
+          "reducedValue": 2,
+          "root": 11,
           "steps": [
-            8
+            11
           ],
-          "value": 8
+          "value": 11
         },
         "soulUrge": {
           "isMaster": false,
           "karmicDebt": null,
-          "reducedValue": 6,
-          "root": 6,
+          "reducedValue": 1,
+          "root": 1,
           "steps": [
-            6
+            1
           ],
-          "value": 6
+          "value": 1
         },
         "subconsciousSelf": 3
+      },
+      "nameChallenges": {
+        "birthName": {
+          "nameOrder": "familyMiddleGiven",
+          "orderedText": "LE AN",
+          "personality": {
+            "difference": 2,
+            "first": {
+              "letter": "L",
+              "value": 3
+            },
+            "last": {
+              "letter": "N",
+              "value": 5
+            },
+            "status": "available",
+            "value": 2
+          },
+          "personalityMethod": "firstLastConsonantAbsoluteDifference",
+          "personalityZeroPolicy": "mapZeroToNine",
+          "rulesVersion": "pythagorean-7mlabs-name-challenges-1.0",
+          "soulUrge": {
+            "difference": 4,
+            "first": {
+              "letter": "E",
+              "value": 5
+            },
+            "last": {
+              "letter": "A",
+              "value": 1
+            },
+            "status": "available",
+            "value": 4
+          },
+          "soulUrgeMethod": "firstLastVowelAbsoluteDifference",
+          "soulUrgeZeroPolicy": "retainZero",
+          "yRule": "contextual"
+        },
+        "currentName": {
+          "nameOrder": "familyMiddleGiven",
+          "orderedText": "MAP",
+          "personality": {
+            "difference": 3,
+            "first": {
+              "letter": "M",
+              "value": 4
+            },
+            "last": {
+              "letter": "P",
+              "value": 7
+            },
+            "status": "available",
+            "value": 3
+          },
+          "personalityMethod": "firstLastConsonantAbsoluteDifference",
+          "personalityZeroPolicy": "mapZeroToNine",
+          "rulesVersion": "pythagorean-7mlabs-name-challenges-1.0",
+          "soulUrge": {
+            "difference": 0,
+            "first": {
+              "letter": "A",
+              "value": 1
+            },
+            "last": {
+              "letter": "A",
+              "value": 1
+            },
+            "status": "available",
+            "value": 0
+          },
+          "soulUrgeMethod": "firstLastVowelAbsoluteDifference",
+          "soulUrgeZeroPolicy": "retainZero",
+          "yRule": "contextual"
+        }
+      },
+      "nameSet": {
+        "combinations": [
+          {
+            "id": "given-and-alias",
+            "method": "concatenateSelectedParts",
+            "numbers": {
+              "balance": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 5,
+                "root": 5,
+                "steps": [
+                  5
+                ],
+                "value": 5
+              },
+              "capstone": "P",
+              "cornerstone": "A",
+              "expression": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 9,
+                "root": 18,
+                "steps": [
+                  18,
+                  9
+                ],
+                "value": 9
+              },
+              "familyName": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 0,
+                "root": 0,
+                "steps": [
+                  0
+                ],
+                "value": 0
+              },
+              "frequency": {
+                "1": 2,
+                "2": 0,
+                "3": 0,
+                "4": 1,
+                "5": 1,
+                "6": 0,
+                "7": 1,
+                "8": 0,
+                "9": 0
+              },
+              "givenName": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 9,
+                "root": 18,
+                "steps": [
+                  18,
+                  9
+                ],
+                "value": 9
+              },
+              "hiddenPassion": [
+                1
+              ],
+              "missingNumbers": [
+                2,
+                3,
+                6,
+                8,
+                9
+              ],
+              "normalizedName": {
+                "family": "",
+                "given": "AN MAP",
+                "middle": ""
+              },
+              "personality": {
+                "isMaster": false,
+                "karmicDebt": 16,
+                "reducedValue": 7,
+                "root": 16,
+                "steps": [
+                  16,
+                  7
+                ],
+                "value": 7
+              },
+              "soulUrge": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 2,
+                "root": 2,
+                "steps": [
+                  2
+                ],
+                "value": 2
+              },
+              "subconsciousSelf": 4
+            },
+            "rationalThought": {
+              "nameSource": "selectedText",
+              "number": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 2,
+                "root": 47,
+                "steps": [
+                  47,
+                  11,
+                  2
+                ],
+                "value": 2
+              }
+            },
+            "reduction": "wholeNameSum",
+            "sources": [
+              {
+                "nameId": "birth",
+                "part": "given",
+                "text": "AN"
+              },
+              {
+                "nameId": "alias",
+                "part": "full",
+                "text": "MAP"
+              }
+            ]
+          }
+        ],
+        "names": [
+          {
+            "id": "birth",
+            "numbers": {
+              "balance": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 4,
+                "root": 4,
+                "steps": [
+                  4
+                ],
+                "value": 4
+              },
+              "capstone": "N",
+              "cornerstone": "A",
+              "expression": {
+                "isMaster": false,
+                "karmicDebt": 14,
+                "reducedValue": 5,
+                "root": 14,
+                "steps": [
+                  14,
+                  5
+                ],
+                "value": 5
+              },
+              "familyName": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 8,
+                "root": 8,
+                "steps": [
+                  8
+                ],
+                "value": 8
+              },
+              "frequency": {
+                "1": 1,
+                "2": 0,
+                "3": 1,
+                "4": 0,
+                "5": 2,
+                "6": 0,
+                "7": 0,
+                "8": 0,
+                "9": 0
+              },
+              "givenName": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 6,
+                "root": 6,
+                "steps": [
+                  6
+                ],
+                "value": 6
+              },
+              "hiddenPassion": [
+                5
+              ],
+              "missingNumbers": [
+                2,
+                4,
+                6,
+                7,
+                8,
+                9
+              ],
+              "normalizedName": {
+                "family": "LE",
+                "given": "AN",
+                "middle": ""
+              },
+              "personality": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 8,
+                "root": 8,
+                "steps": [
+                  8
+                ],
+                "value": 8
+              },
+              "soulUrge": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 6,
+                "root": 6,
+                "steps": [
+                  6
+                ],
+                "value": 6
+              },
+              "subconsciousSelf": 3
+            },
+            "rationalThought": {
+              "nameSource": "given",
+              "number": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 8,
+                "root": 35,
+                "steps": [
+                  35,
+                  8
+                ],
+                "value": 8
+              }
+            },
+            "source": "profile.birthName"
+          },
+          {
+            "id": "alias",
+            "numbers": {
+              "balance": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 4,
+                "root": 4,
+                "steps": [
+                  4
+                ],
+                "value": 4
+              },
+              "capstone": "P",
+              "cornerstone": "M",
+              "expression": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 3,
+                "root": 12,
+                "steps": [
+                  12,
+                  3
+                ],
+                "value": 3
+              },
+              "familyName": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 0,
+                "root": 0,
+                "steps": [
+                  0
+                ],
+                "value": 0
+              },
+              "frequency": {
+                "1": 1,
+                "2": 0,
+                "3": 0,
+                "4": 1,
+                "5": 0,
+                "6": 0,
+                "7": 1,
+                "8": 0,
+                "9": 0
+              },
+              "givenName": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 3,
+                "root": 12,
+                "steps": [
+                  12,
+                  3
+                ],
+                "value": 3
+              },
+              "hiddenPassion": [
+                1,
+                4,
+                7
+              ],
+              "missingNumbers": [
+                2,
+                3,
+                5,
+                6,
+                8,
+                9
+              ],
+              "normalizedName": {
+                "family": "",
+                "given": "MAP",
+                "middle": ""
+              },
+              "personality": {
+                "isMaster": true,
+                "karmicDebt": null,
+                "reducedValue": 2,
+                "root": 11,
+                "steps": [
+                  11
+                ],
+                "value": 11
+              },
+              "soulUrge": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 1,
+                "root": 1,
+                "steps": [
+                  1
+                ],
+                "value": 1
+              },
+              "subconsciousSelf": 3
+            },
+            "rationalThought": {
+              "nameSource": "given",
+              "number": {
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 5,
+                "root": 41,
+                "steps": [
+                  41,
+                  5
+                ],
+                "value": 5
+              }
+            },
+            "source": "input"
+          }
+        ],
+        "rulesVersion": "pythagorean-7mlabs-names-1.0"
+      },
+      "periodCycles": [
+        {
+          "endAge": 30,
+          "number": {
+            "isMaster": false,
+            "karmicDebt": null,
+            "reducedValue": 2,
+            "root": 2,
+            "steps": [
+              2
+            ],
+            "value": 2
+          },
+          "phase": 1,
+          "source": "birthMonth",
+          "startAge": 0
+        },
+        {
+          "endAge": 57,
+          "number": {
+            "isMaster": true,
+            "karmicDebt": null,
+            "reducedValue": 2,
+            "root": 29,
+            "steps": [
+              29,
+              11
+            ],
+            "value": 11
+          },
+          "phase": 2,
+          "source": "birthDay",
+          "startAge": 31
+        },
+        {
+          "endAge": null,
+          "number": {
+            "isMaster": false,
+            "karmicDebt": null,
+            "reducedValue": 2,
+            "root": 2000,
+            "steps": [
+              2000,
+              2
+            ],
+            "value": 2
+          },
+          "phase": 3,
+          "source": "birthYear",
+          "startAge": 58
+        }
+      ],
+      "rationalThought": {
+        "nameSource": "birthName.given",
+        "number": {
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 8,
+          "root": 35,
+          "steps": [
+            35,
+            8
+          ],
+          "value": 8
+        }
       }
     },
-    "engineVersion": "1.0.0",
-    "extensions": {
-      "indicators": true,
-      "nameChallengesRulesVersion": "pythagorean-7mlabs-name-challenges-1.0",
-      "namesRulesVersion": "pythagorean-7mlabs-names-1.0",
-      "reducedValues": true,
-      "rulesVersion": "pythagorean-7mlabs-extensions-1.0"
-    },
-    "operation": "profile",
-    "options": {
-      "keepMasterNumbers": true,
-      "yRule": "contextual"
-    },
-    "rulesVersion": "pythagorean-7mlabs-1.0",
-    "schemaVersion": "1.1",
-    "system": "pythagorean",
-    "warnings": []
-  }
+    "name": {
+      "balance": {
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 4,
+        "root": 4,
+        "steps": [
+          4
+        ],
+        "value": 4
+      },
+      "capstone": "N",
+      "cornerstone": "A",
+      "expression": {
+        "isMaster": false,
+        "karmicDebt": 14,
+        "reducedValue": 5,
+        "root": 14,
+        "steps": [
+          14,
+          5
+        ],
+        "value": 5
+      },
+      "familyName": {
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 8,
+        "root": 8,
+        "steps": [
+          8
+        ],
+        "value": 8
+      },
+      "frequency": {
+        "1": 1,
+        "2": 0,
+        "3": 1,
+        "4": 0,
+        "5": 2,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "givenName": {
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 6,
+        "root": 6,
+        "steps": [
+          6
+        ],
+        "value": 6
+      },
+      "hiddenPassion": [
+        5
+      ],
+      "missingNumbers": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        9
+      ],
+      "normalizedName": {
+        "family": "LE",
+        "given": "AN",
+        "middle": ""
+      },
+      "personality": {
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 8,
+        "root": 8,
+        "steps": [
+          8
+        ],
+        "value": 8
+      },
+      "soulUrge": {
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 6,
+        "root": 6,
+        "steps": [
+          6
+        ],
+        "value": 6
+      },
+      "subconsciousSelf": 3
+    }
+  },
+  "engineVersion": "1.1.0",
+  "extensions": {
+    "indicators": true,
+    "nameChallengesRulesVersion": "pythagorean-7mlabs-name-challenges-1.0",
+    "namesRulesVersion": "pythagorean-7mlabs-names-1.0",
+    "reducedValues": true,
+    "rulesVersion": "pythagorean-7mlabs-extensions-1.0"
+  },
+  "operation": "profile",
+  "options": {
+    "keepMasterNumbers": true,
+    "yRule": "contextual"
+  },
+  "rulesVersion": "pythagorean-7mlabs-1.0",
+  "schemaVersion": "1.1",
+  "system": "pythagorean",
+  "warnings": []
 }
