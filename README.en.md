@@ -39,7 +39,7 @@
 
 Offline Pythagorean calculations from one Rust core, with Node.js/TypeScript, Python, .NET and C interfaces. MIT License — Copyright (c) 2026 7mlabs.
 
-SDK version: 1.0.0. Registry availability and verified native targets are recorded in the release manifest. This is an independent SDK with a new JSON contract, not a drop-in replacement for the earlier HTTP service. It performs calculations directly inside the caller process, without an engine server or an Internet request.
+SDK candidate: **1.1.0 — not published yet**. Registry availability and verified native targets are recorded in the release manifest. This is an independent SDK with a new JSON contract, not a drop-in replacement for the earlier HTTP service. It performs calculations directly inside the caller process, without an engine server or an Internet request.
 
 <a id="features"></a>
 
@@ -67,6 +67,12 @@ Opt-in additions in 1.0.0 include single-digit display roots alongside retained 
 
 The documentation explains the arithmetic without putting a textbook into every payload. Payload metadata records the effective system, rule versions, options, reduction traces and explicit sources needed to select and reproduce those documented methods.
 
+## Filtered output in 1.1.0
+
+Prefer `calculateFiltered` for new integrations that need less source data. It retains eligible raw totals, reduction steps, masters and single-digit display values, with explicit date-revealing trace exceptions for Attitude/Rational Thought. Existing `calculate` APIs still return full 1.0.0-compatible output, which can contain names and birth-date sources.
+
+[Field policy, limits and examples](docs/payload-filtering.md). Filtered output **is not anonymous**. New API examples below require a built 1.1.0 candidate; public registry packages have not been changed during candidate preparation.
+
 ## From input to payload
 
 <picture>
@@ -88,16 +94,16 @@ Name components are explicit so callers control cultural name order. `profile` r
 ### Node.js / TypeScript
 
 ```js
-const { calculate } = require('@7mlabs/numerology');
-const result = calculate({ operation: 'birth', birthDate: '2000-02-29' });
+const { calculate, calculateFiltered } = require('@7mlabs/numerology');
+const result = calculateFiltered({ operation: 'birth', birthDate: '2000-02-29' });
 console.log(result.data.birth.lifePath);
 ```
 
 ### Python
 
 ```python
-from sevenmlabs_numerology import calculate
-result = calculate({"operation": "birth", "birthDate": "2000-02-29"})
+from sevenmlabs_numerology import calculate, calculate_filtered
+result = calculate_filtered({"operation": "birth", "birthDate": "2000-02-29"})
 print(result["data"]["birth"]["lifePath"])
 ```
 
@@ -105,7 +111,7 @@ print(result["data"]["birth"]["lifePath"])
 
 ```csharp
 using SevenMLabs.Numerology;
-var result = Numerology.Calculate("""{"operation":"birth","birthDate":"2000-02-29"}""");
+var result = Numerology.CalculateFiltered("""{"operation":"birth","birthDate":"2000-02-29"}""");
 Console.WriteLine(result.GetProperty("data").GetProperty("birth").GetProperty("lifePath"));
 ```
 
@@ -116,7 +122,7 @@ All wrappers expose a raw JSON envelope (`calculateJson`, `calculate_json`, `Cal
 
 ## Optional extended payload
 
-Omitting `extensions` keeps the existing schema 1.0 payload, values and Rust `Request` API unchanged. An explicit object opts into schema 1.1 additions:
+This section describes the full `calculate` API. Omitting `extensions` keeps the existing schema 1.0 payload, values and Rust `Request` API unchanged. An explicit object opts into schema 1.1 additions:
 
 ```js
 const result = calculate({

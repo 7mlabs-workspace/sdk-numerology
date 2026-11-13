@@ -229,14 +229,14 @@ dependencies = [
 
 [[package]]
 name = "sevenmlabs-numerology-cli"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "sevenmlabs-numerology-core",
 ]
 
 [[package]]
 name = "sevenmlabs-numerology-core"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "serde",
  "serde_json",
@@ -245,14 +245,14 @@ dependencies = [
 
 [[package]]
 name = "sevenmlabs-numerology-ffi"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "sevenmlabs-numerology-core",
 ]
 
 [[package]]
 name = "sevenmlabs-numerology-node"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "napi",
  "napi-build",

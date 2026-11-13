@@ -9,10 +9,13 @@ for record in manifest['artifacts']:
  if p.suffix=='.tgz':
   with tarfile.open(p) as t:
    names=t.getnames();assert 'package/LICENSE' in names and 'package/THIRD-PARTY-NOTICES.txt' in names
-   meta=json.load(t.extractfile('package/package.json'));assert meta['version']=='1.0.0' and meta['license']=='MIT' and not meta.get('private');assert any(n.endswith('.node') for n in names)
+   meta=json.load(t.extractfile('package/package.json'));assert meta['version']=='1.1.0' and meta['license']=='MIT' and not meta.get('private');assert any(n.endswith('.node') for n in names)
+   for rel in ['index.cjs','index.d.ts','README.md']:assert t.extractfile('package/'+rel).read()==(ROOT/'bindings/node'/rel).read_bytes(),rel
  elif p.suffix in ['.whl','.nupkg']:
   with zipfile.ZipFile(p) as z:
    names=z.namelist();assert any(n.endswith('LICENSE') for n in names);assert any(n.endswith('THIRD-PARTY-NOTICES.txt') for n in names);assert any(n.endswith(('.so','.dylib')) for n in names)
+   if p.suffix=='.nupkg':assert z.read('README.md')==(ROOT/'bindings/dotnet/SevenMLabs.Numerology/README.md').read_bytes()
+   if p.suffix=='.whl':assert z.read('sevenmlabs_numerology/__init__.py')==(ROOT/'bindings/python/sevenmlabs_numerology/__init__.py').read_bytes()
 node=consumers/'node';node.mkdir(exist_ok=True);(node/'package.json').write_text('{"private":true}')
 tgz=next(out.glob('*.tgz'));subprocess.run(['npm','install','--ignore-scripts','--no-audit','--no-fund',str(tgz)],cwd=node,check=True)
 subprocess.run(['node',str(ROOT/'scripts/test-node.cjs')],env={**os.environ,'NUMEROLOGY_NODE_PACKAGE':str(node/'node_modules/@7mlabs/numerology')},check=True)
@@ -20,9 +23,10 @@ venv=consumers/'python';subprocess.run([sys.executable,'-m','venv',str(venv)],ch
 wheels=[p for p in out.glob('*.whl') if ('macosx' in p.name)==(platform.system()=='Darwin')];assert len(wheels)==1;wheel=wheels[0];subprocess.run([str(python),'-m','pip','install','--no-index','--force-reinstall',str(wheel)],check=True)
 subprocess.run([str(python),str(ROOT/'scripts/test-python.py')],env={**os.environ,'NUMEROLOGY_INSTALLED_PACKAGE':'1'},check=True)
 dotnet=consumers/'dotnet';dotnet.mkdir(exist_ok=True)
-(dotnet/'Consumer.csproj').write_text('<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType><TargetFrameworks>net8.0;net10.0</TargetFrameworks><ImplicitUsings>enable</ImplicitUsings></PropertyGroup><ItemGroup><PackageReference Include="SevenMLabs.Numerology" Version="1.0.0" /></ItemGroup></Project>')
+(dotnet/'Consumer.csproj').write_text('<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType><TargetFrameworks>net8.0;net10.0</TargetFrameworks><ImplicitUsings>enable</ImplicitUsings></PropertyGroup><ItemGroup><PackageReference Include="SevenMLabs.Numerology" Version="1.1.0" /></ItemGroup></Project>')
 (dotnet/'NuGet.Config').write_text(f'<configuration><packageSources><clear/><add key="local" value="{out}" /></packageSources></configuration>')
 shutil.copy2(ROOT/'tests/dotnet/Program.cs',dotnet/'Program.cs')
-subprocess.run(['dotnet','run','--project',str(dotnet/'Consumer.csproj'),'--framework','net10.0','--',str(ROOT/'artifacts/conformance.json')],env={**os.environ,'NUGET_PACKAGES':str(consumers/'nuget-cache')},check=True)
-(out/'consumer-verification.json').write_text(json.dumps({'status':'passed','sharedCases':len(json.loads((ROOT/'artifacts/conformance.json').read_text())),'conformanceSha256':hashlib.sha256((ROOT/'artifacts/conformance.json').read_bytes()).hexdigest(),'consumers':['installed npm tarball','installed Python wheel','installed NuGet package'],'manifestSha256':hashlib.sha256((out/'host-manifest.json').read_bytes()).hexdigest()},indent=2)+'\n')
+# Restore only the runtime being exercised here. CI separately executes the net8.0 consumer.
+subprocess.run(['dotnet','run','--project',str(dotnet/'Consumer.csproj'),'-p:TargetFrameworks=net10.0','--framework','net10.0','--',str(ROOT/'artifacts/conformance.json')],env={**os.environ,'NUGET_PACKAGES':str(consumers/'nuget-cache')},check=True)
+(out/'consumer-verification.json').write_text(json.dumps({'status':'passed','sharedCases':len(json.loads((ROOT/'artifacts/conformance.json').read_text())),'conformanceSha256':hashlib.sha256((ROOT/'artifacts/conformance.json').read_bytes()).hexdigest(),'filteredCases':len(json.loads((ROOT/'artifacts/conformance-filtered.json').read_text())),'filteredConformanceSha256':hashlib.sha256((ROOT/'artifacts/conformance-filtered.json').read_bytes()).hexdigest(),'consumers':['installed npm tarball','installed Python wheel','installed NuGet package'],'manifestSha256':hashlib.sha256((out/'host-manifest.json').read_bytes()).hexdigest()},indent=2)+'\n')
 print('All actual installed package consumers passed.')
