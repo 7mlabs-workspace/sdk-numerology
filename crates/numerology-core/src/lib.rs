@@ -5,6 +5,10 @@ use std::collections::BTreeMap;
 use unicode_normalization::{char::is_combining_mark, UnicodeNormalization};
 mod extensions;
 pub use extensions::{calculate_with_extensions, Extensions};
+mod filtered;
+pub use filtered::{
+    calculate_filtered, calculate_filtered_bytes, calculate_filtered_json, calculate_names_filtered,
+};
 mod name_challenges;
 pub use name_challenges::{calculate_name_challenges, NameChallengeOptions, NameOrder};
 mod names;

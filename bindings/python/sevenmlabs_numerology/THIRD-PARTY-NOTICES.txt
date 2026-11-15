@@ -1,4 +1,4 @@
-7mlabs Numerology SDK 1.0.0 — third-party notices
+7mlabs Numerology SDK 1.1.0 — third-party notices
 The SDK's own code is MIT, Copyright (c) 2026 7mlabs.
 The following dependency licenses and copyright notices are retained.
 

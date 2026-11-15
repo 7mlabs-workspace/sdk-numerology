@@ -16,6 +16,12 @@ for i, case in enumerate(cases):
     response = subprocess.run([str(args.cli)], input=case['request'], text=True,
                               capture_output=True, check=True, timeout=5)
     actual = json.loads(response.stdout)
-    if actual != case['expected']:
+    # A package upgrade necessarily changes engineVersion, never the frozen arithmetic/schema.
+    expected = json.loads(json.dumps(case['expected']))
+    if actual.get('ok') and expected.get('ok'):
+        version = actual['result']['engineVersion']
+        assert version == '1.1.0', version
+        expected['result']['engineVersion'] = version
+    if actual != expected:
         raise SystemExit(f'Legacy contract changed at case {i}')
-print(json.dumps({'status':'passed','legacyCases':len(cases),'comparison':'exact JSON values and fields'}))
+print(json.dumps({'status':'passed','legacyCases':len(cases),'comparison':'exact JSON values and fields except declared engineVersion upgrade'}))

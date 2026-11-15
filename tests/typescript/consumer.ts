@@ -1,4 +1,4 @@
-import { calculate, calculateJson, NumerologyError, Request, Operation, Result, AnyRequest, SupportedOperation } from '../../bindings/node';
+import { calculate, calculateJson, calculateFiltered, calculateFilteredJson, NumerologyError, Request, Operation, Result, AnyRequest, SupportedOperation } from '../../bindings/node';
 const birth=calculate({operation:'birth',birthDate:'2000-02-29'});
 const life: number=birth.data.birth.lifePath.value;
 const profile=calculate({operation:'profile',name:{given:'An'},birthDate:'2000-02-29',referenceDate:'2026-01-01'});
@@ -50,3 +50,23 @@ if (challenge?.status === 'available') { const v: number = challenge.value; cons
 calculate({operation:'name',name:{given:'A'},extensions:{nameChallenges:{}}});
 // @ts-expect-error birth calculations do not accept name challenges
 calculate({operation:'birth',birthDate:'2000-01-01',extensions:{nameChallenges:{nameOrder:'givenMiddleFamily'}}});
+const filtered = calculateFiltered({operation:'profile',name:{given:'Đặng'},birthDate:'2000-02-29',referenceDate:'2026-11-13'});
+const filteredSchema: 'filtered-1.0' = filtered.schemaVersion;
+const originalSum: number = filtered.data.name.expression.root;
+const originalSteps: number[] = filtered.data.name.expression.steps;
+const reducedDisplay: number = filtered.data.name.expression.reducedValue;
+const withheld: 'withheld' = filtered.data.birth.attitude.traceStatus;
+// @ts-expect-error filtered payload does not contain the normalized name
+filtered.data.name.normalizedName;
+// @ts-expect-error withheld traces cannot be accessed as ordinary traced numbers
+filtered.data.birth.attitude.root;
+// @ts-expect-error filtered birthday/source components are absent
+filtered.data.birth.birthDay;
+const filteredNames = calculateFiltered({operation:'names',names:[{id:'private',name:{given:'A'}}]});
+const label: string = filteredNames.data.names.names[0].id;
+// @ts-expect-error names results have no profile birth section
+filteredNames.data.birth;
+// @ts-expect-error invalid name source selection still fails for the new API
+calculateFiltered({operation:'names',names:[{id:'a',name:{given:'A'}}],combinations:[{id:'b',sources:[{nameId:'a',part:'nickname'}]}]});
+calculateFilteredJson('{}');
+void [filteredSchema, originalSum, originalSteps, reducedDisplay, withheld, label];

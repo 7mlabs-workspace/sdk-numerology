@@ -12,6 +12,9 @@ const char *numerology_version(void);
 char *numerology_calculate_json_len(const unsigned char *input, size_t len);
 /* Input must be valid NUL-terminated UTF-8. Output must be freed exactly once. */
 char *numerology_calculate_json(const char *input);
+/* Opt-in filtered-1.0 output; same request grammar, bounds and numerology_free ownership. */
+char *numerology_calculate_filtered_json_len(const unsigned char *input, size_t len);
+char *numerology_calculate_filtered_json(const char *input);
 void numerology_free(char *output);
 #ifdef __cplusplus
 }

@@ -6,6 +6,8 @@
 
 [SDK home](../README.en.md) · [Features & formulas](features-and-formulas.md) · **Calculation rules** · [Formula evidence](formula-verification.md)
 
+> SDK 1.1.0 adds [filtered output](payload-filtering.md) with a separate schema. Paths below describe full output; calculation conventions remain unchanged.
+
 ---
 
 <details open>

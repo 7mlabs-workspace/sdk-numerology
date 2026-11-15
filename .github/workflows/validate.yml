@@ -39,11 +39,14 @@ jobs:
           cargo test --workspace --locked
       - name: Build native host and notices
         run: |
+          python -m pip install -r tools/build-requirements.txt
           python scripts/collect-notices.py
           python scripts/build-native.py
           python scripts/check-legacy-contract.py
           python scripts/check-legacy-contract.py --baseline tests/fixtures/extended-contract.json
           python scripts/make-conformance.py
+          python scripts/check-filtered-contract.py
+          python scripts/test-c.py
       - name: Verify TypeScript contracts and native consumers
         run: |
           npm ci --prefix tools --ignore-scripts --no-audit --no-fund
@@ -53,7 +56,6 @@ jobs:
           dotnet run --project tests/dotnet/Consumer.csproj -- artifacts/conformance.json
       - name: Build host package candidates
         run: |
-          python -m pip install -r tools/build-requirements.txt
           python scripts/package-host.py
       - name: Verify real installed packages
         run: python scripts/verify-packages.py
@@ -145,10 +147,12 @@ jobs:
           path: artifacts/packages
       - name: Generate same-contract native fixtures and test final packages
         run: |
+          python -m pip install -r tools/build-requirements.txt
           cargo build --release --locked -p sevenmlabs-numerology-cli
           python scripts/check-legacy-contract.py
           python scripts/check-legacy-contract.py --baseline tests/fixtures/extended-contract.json
           python scripts/make-conformance.py
+          python scripts/check-filtered-contract.py
           python scripts/verify-packages.py
       - uses: actions/setup-node@v4
         with:

@@ -12,14 +12,14 @@ assert set(changed)<={'scripts/verify-publish.py','.github/workflows/publish-pyp
 if os.environ.get('VERIFY_MODE')=='identity':
  print('Verified successful SDK build '+sha)
 else:
- base=ROOT/'artifacts/validated';manifest=json.loads((base/'release-manifest.json').read_text());assert manifest['sourceCommit']==sha and manifest['repository']=='7mlabs-workspace/sdk-numerology' and manifest['version']=='1.0.0'
+ base=ROOT/'artifacts/validated';manifest=json.loads((base/'release-manifest.json').read_text());assert manifest['sourceCommit']==sha and manifest['repository']=='7mlabs-workspace/sdk-numerology' and manifest['version']=='1.1.0'
  out=ROOT/'artifacts/pypi-dist';out.mkdir(parents=True,exist_ok=True);count=0
  for item in manifest['artifacts']:
   p=base/item['name'];assert p.resolve().is_relative_to(base.resolve());assert hashlib.sha256(p.read_bytes()).hexdigest()==item['sha256']
   if p.suffix!='.whl':continue
   with zipfile.ZipFile(p) as z:
-   meta=email.message_from_bytes(z.read('sevenmlabs_numerology-1.0.0.dist-info/METADATA'))
-   assert meta['Name']=='sevenmlabs-numerology' and meta['Version']=='1.0.0' and meta['License-Expression']=='MIT'
+   meta=email.message_from_bytes(z.read('sevenmlabs_numerology-1.1.0.dist-info/METADATA'))
+   assert meta['Name']=='sevenmlabs-numerology' and meta['Version']=='1.1.0' and meta['License-Expression']=='MIT'
    assert b'Copyright (c) 2026 7mlabs' in z.read('sevenmlabs_numerology/LICENSE')
   shutil.copy2(p,out/p.name);count+=1
  assert count==2

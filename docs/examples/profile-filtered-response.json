@@ -1,0 +1,1342 @@
+{
+  "calculationRules": {
+    "bridgeMethod": "absoluteDifferenceOfReturnedValues",
+    "contextualY": "vowelUnlessAdjacentToAEIOUInSameWord",
+    "nameFrequency": "pythagoreanLetterValues1To9",
+    "nameParts": "explicitGivenMiddleFamily",
+    "normalization": "latinNfdStripCombiningMarksVietnameseDToDUppercase",
+    "yRule": "contextual"
+  },
+  "data": {
+    "birth": {
+      "attitude": {
+        "effectiveRules": {
+          "method": "rawBirthDayPlusRawBirthMonth",
+          "preserveMasterNumbers": [],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 4,
+        "traceStatus": "withheld",
+        "traceWithheldReason": "birthDateInference",
+        "value": 4
+      },
+      "lifePath": {
+        "effectiveRules": {
+          "method": "sumOfReducedBirthComponents",
+          "preserveMasterNumbers": [
+            11,
+            22,
+            33
+          ],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 6,
+        "root": 15,
+        "steps": [
+          15,
+          6
+        ],
+        "traceStatus": "included",
+        "value": 6
+      }
+    },
+    "cycles": {
+      "challenges": [
+        {
+          "effectiveRules": {
+            "method": "absoluteSingleBirthMonthMinusSingleBirthDay",
+            "preserveMasterNumbers": [],
+            "reduction": "decimalDigitSum"
+          },
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 0,
+          "root": 0,
+          "steps": [
+            0
+          ],
+          "traceStatus": "included",
+          "value": 0
+        },
+        {
+          "effectiveRules": {
+            "method": "absoluteSingleBirthDayMinusSingleBirthYear",
+            "preserveMasterNumbers": [],
+            "reduction": "decimalDigitSum"
+          },
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 0,
+          "root": 0,
+          "steps": [
+            0
+          ],
+          "traceStatus": "included",
+          "value": 0
+        },
+        {
+          "effectiveRules": {
+            "method": "absoluteFirstChallengeMinusSecondChallenge",
+            "preserveMasterNumbers": [],
+            "reduction": "decimalDigitSum"
+          },
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 0,
+          "root": 0,
+          "steps": [
+            0
+          ],
+          "traceStatus": "included",
+          "value": 0
+        },
+        {
+          "effectiveRules": {
+            "method": "absoluteSingleBirthMonthMinusSingleBirthYear",
+            "preserveMasterNumbers": [],
+            "reduction": "decimalDigitSum"
+          },
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 0,
+          "root": 0,
+          "steps": [
+            0
+          ],
+          "traceStatus": "included",
+          "value": 0
+        }
+      ],
+      "personalDay": {
+        "effectiveRules": {
+          "method": "personalMonthValuePlusReferenceDay",
+          "preserveMasterNumbers": [],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 9,
+        "root": 18,
+        "steps": [
+          18,
+          9
+        ],
+        "traceStatus": "included",
+        "value": 9
+      },
+      "personalMonth": {
+        "effectiveRules": {
+          "method": "personalYearValuePlusReferenceMonth",
+          "preserveMasterNumbers": [],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": 16,
+        "reducedValue": 7,
+        "root": 16,
+        "steps": [
+          16,
+          7
+        ],
+        "traceStatus": "included",
+        "value": 7
+      },
+      "personalYear": {
+        "effectiveRules": {
+          "method": "singleBirthMonthPlusSingleBirthDayPlusSingleReferenceYear",
+          "preserveMasterNumbers": [],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 5,
+        "root": 5,
+        "steps": [
+          5
+        ],
+        "traceStatus": "included",
+        "value": 5
+      },
+      "pinnacles": [
+        {
+          "endAge": 30,
+          "number": {
+            "effectiveRules": {
+              "method": "singleBirthMonthPlusSingleBirthDay",
+              "preserveMasterNumbers": [
+                11,
+                22,
+                33
+              ],
+              "reduction": "decimalDigitSum"
+            },
+            "isMaster": false,
+            "karmicDebt": null,
+            "reducedValue": 4,
+            "root": 4,
+            "steps": [
+              4
+            ],
+            "traceStatus": "included",
+            "value": 4
+          },
+          "phase": 1,
+          "startAge": 0
+        },
+        {
+          "endAge": 39,
+          "number": {
+            "effectiveRules": {
+              "method": "singleBirthDayPlusSingleBirthYear",
+              "preserveMasterNumbers": [
+                11,
+                22,
+                33
+              ],
+              "reduction": "decimalDigitSum"
+            },
+            "isMaster": false,
+            "karmicDebt": null,
+            "reducedValue": 4,
+            "root": 4,
+            "steps": [
+              4
+            ],
+            "traceStatus": "included",
+            "value": 4
+          },
+          "phase": 2,
+          "startAge": 31
+        },
+        {
+          "endAge": 48,
+          "number": {
+            "effectiveRules": {
+              "method": "firstPinnacleValuePlusSecondPinnacleValue",
+              "preserveMasterNumbers": [
+                11,
+                22,
+                33
+              ],
+              "reduction": "decimalDigitSum"
+            },
+            "isMaster": false,
+            "karmicDebt": null,
+            "reducedValue": 8,
+            "root": 8,
+            "steps": [
+              8
+            ],
+            "traceStatus": "included",
+            "value": 8
+          },
+          "phase": 3,
+          "startAge": 40
+        },
+        {
+          "endAge": null,
+          "number": {
+            "effectiveRules": {
+              "method": "singleBirthMonthPlusSingleBirthYear",
+              "preserveMasterNumbers": [
+                11,
+                22,
+                33
+              ],
+              "reduction": "decimalDigitSum"
+            },
+            "isMaster": false,
+            "karmicDebt": null,
+            "reducedValue": 4,
+            "root": 4,
+            "steps": [
+              4
+            ],
+            "traceStatus": "included",
+            "value": 4
+          },
+          "phase": 4,
+          "startAge": 49
+        }
+      ],
+      "universalDay": {
+        "effectiveRules": {
+          "method": "universalMonthValuePlusReferenceDay",
+          "preserveMasterNumbers": [],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": 14,
+        "reducedValue": 5,
+        "root": 14,
+        "steps": [
+          14,
+          5
+        ],
+        "traceStatus": "included",
+        "value": 5
+      },
+      "universalMonth": {
+        "effectiveRules": {
+          "method": "universalYearValuePlusReferenceMonth",
+          "preserveMasterNumbers": [],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 3,
+        "root": 12,
+        "steps": [
+          12,
+          3
+        ],
+        "traceStatus": "included",
+        "value": 3
+      },
+      "universalYear": {
+        "effectiveRules": {
+          "method": "referenceYear",
+          "preserveMasterNumbers": [],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 1,
+        "root": 2026,
+        "steps": [
+          2026,
+          10,
+          1
+        ],
+        "traceStatus": "included",
+        "value": 1
+      }
+    },
+    "derived": {
+      "lifePathExpressionBridge": 1,
+      "maturity": {
+        "effectiveRules": {
+          "method": "lifePathValuePlusExpressionValue",
+          "preserveMasterNumbers": [
+            11,
+            22,
+            33
+          ],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": true,
+        "karmicDebt": null,
+        "reducedValue": 2,
+        "root": 11,
+        "steps": [
+          11
+        ],
+        "traceStatus": "included",
+        "value": 11
+      },
+      "soulPersonalityBridge": 2
+    },
+    "essence": {
+      "years": [
+        {
+          "age": 0,
+          "essence": {
+            "effectiveRules": {
+              "method": "sumOfActiveTransitValues",
+              "preserveMasterNumbers": [
+                11,
+                22,
+                33
+              ],
+              "reduction": "decimalDigitSum"
+            },
+            "isMaster": false,
+            "karmicDebt": null,
+            "reducedValue": 4,
+            "root": 4,
+            "steps": [
+              4
+            ],
+            "traceStatus": "included",
+            "value": 4
+          }
+        }
+      ]
+    },
+    "extended": {
+      "birthNameGridAxes": [
+        {
+          "digits": [
+            1,
+            2,
+            3
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            4,
+            5,
+            6
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            7,
+            8,
+            9
+          ],
+          "status": "absent"
+        },
+        {
+          "digits": [
+            1,
+            4,
+            7
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            2,
+            5,
+            8
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            3,
+            6,
+            9
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            1,
+            5,
+            9
+          ],
+          "status": "partial"
+        },
+        {
+          "digits": [
+            3,
+            5,
+            7
+          ],
+          "status": "partial"
+        }
+      ],
+      "currentName": {
+        "balance": {
+          "effectiveRules": {
+            "method": "wordInitialLetterSum",
+            "preserveMasterNumbers": [
+              11,
+              22,
+              33
+            ],
+            "reduction": "decimalDigitSum"
+          },
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 4,
+          "root": 4,
+          "steps": [
+            4
+          ],
+          "traceStatus": "included",
+          "value": 4
+        },
+        "expression": {
+          "effectiveRules": {
+            "method": "wholeNameLetterSum",
+            "preserveMasterNumbers": [
+              11,
+              22,
+              33
+            ],
+            "reduction": "decimalDigitSum"
+          },
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 3,
+          "root": 12,
+          "steps": [
+            12,
+            3
+          ],
+          "traceStatus": "included",
+          "value": 3
+        },
+        "familyName": {
+          "effectiveRules": {
+            "method": "familyPartLetterSum",
+            "preserveMasterNumbers": [
+              11,
+              22,
+              33
+            ],
+            "reduction": "decimalDigitSum"
+          },
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 0,
+          "root": 0,
+          "steps": [
+            0
+          ],
+          "traceStatus": "included",
+          "value": 0
+        },
+        "frequency": {
+          "1": 1,
+          "2": 0,
+          "3": 0,
+          "4": 1,
+          "5": 0,
+          "6": 0,
+          "7": 1,
+          "8": 0,
+          "9": 0
+        },
+        "givenName": {
+          "effectiveRules": {
+            "method": "givenPartLetterSum",
+            "preserveMasterNumbers": [
+              11,
+              22,
+              33
+            ],
+            "reduction": "decimalDigitSum"
+          },
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 3,
+          "root": 12,
+          "steps": [
+            12,
+            3
+          ],
+          "traceStatus": "included",
+          "value": 3
+        },
+        "hiddenPassion": [
+          1,
+          4,
+          7
+        ],
+        "missingNumbers": [
+          2,
+          3,
+          5,
+          6,
+          8,
+          9
+        ],
+        "personality": {
+          "effectiveRules": {
+            "method": "wholeNameConsonantSum",
+            "preserveMasterNumbers": [
+              11,
+              22,
+              33
+            ],
+            "reduction": "decimalDigitSum"
+          },
+          "isMaster": true,
+          "karmicDebt": null,
+          "reducedValue": 2,
+          "root": 11,
+          "steps": [
+            11
+          ],
+          "traceStatus": "included",
+          "value": 11
+        },
+        "soulUrge": {
+          "effectiveRules": {
+            "method": "wholeNameVowelSum",
+            "preserveMasterNumbers": [
+              11,
+              22,
+              33
+            ],
+            "reduction": "decimalDigitSum"
+          },
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 1,
+          "root": 1,
+          "steps": [
+            1
+          ],
+          "traceStatus": "included",
+          "value": 1
+        },
+        "subconsciousSelf": 3
+      },
+      "nameChallenges": {
+        "birthName": {
+          "nameOrder": "familyMiddleGiven",
+          "personality": {
+            "difference": 2,
+            "status": "available",
+            "value": 2
+          },
+          "personalityMethod": "firstLastConsonantAbsoluteDifference",
+          "personalityZeroPolicy": "mapZeroToNine",
+          "rulesVersion": "pythagorean-7mlabs-name-challenges-1.0",
+          "soulUrge": {
+            "difference": 4,
+            "status": "available",
+            "value": 4
+          },
+          "soulUrgeMethod": "firstLastVowelAbsoluteDifference",
+          "soulUrgeZeroPolicy": "retainZero",
+          "yRule": "contextual"
+        },
+        "currentName": {
+          "nameOrder": "familyMiddleGiven",
+          "personality": {
+            "difference": 3,
+            "status": "available",
+            "value": 3
+          },
+          "personalityMethod": "firstLastConsonantAbsoluteDifference",
+          "personalityZeroPolicy": "mapZeroToNine",
+          "rulesVersion": "pythagorean-7mlabs-name-challenges-1.0",
+          "soulUrge": {
+            "difference": 0,
+            "status": "available",
+            "value": 0
+          },
+          "soulUrgeMethod": "firstLastVowelAbsoluteDifference",
+          "soulUrgeZeroPolicy": "retainZero",
+          "yRule": "contextual"
+        }
+      },
+      "nameSet": {
+        "combinations": [
+          {
+            "id": "c1",
+            "method": "concatenateSelectedParts",
+            "numbers": {
+              "balance": {
+                "effectiveRules": {
+                  "method": "wordInitialLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 5,
+                "root": 5,
+                "steps": [
+                  5
+                ],
+                "traceStatus": "included",
+                "value": 5
+              },
+              "expression": {
+                "effectiveRules": {
+                  "method": "wholeNameLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 9,
+                "root": 18,
+                "steps": [
+                  18,
+                  9
+                ],
+                "traceStatus": "included",
+                "value": 9
+              },
+              "familyName": {
+                "effectiveRules": {
+                  "method": "familyPartLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 0,
+                "root": 0,
+                "steps": [
+                  0
+                ],
+                "traceStatus": "included",
+                "value": 0
+              },
+              "frequency": {
+                "1": 2,
+                "2": 0,
+                "3": 0,
+                "4": 1,
+                "5": 1,
+                "6": 0,
+                "7": 1,
+                "8": 0,
+                "9": 0
+              },
+              "givenName": {
+                "effectiveRules": {
+                  "method": "givenPartLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 9,
+                "root": 18,
+                "steps": [
+                  18,
+                  9
+                ],
+                "traceStatus": "included",
+                "value": 9
+              },
+              "hiddenPassion": [
+                1
+              ],
+              "missingNumbers": [
+                2,
+                3,
+                6,
+                8,
+                9
+              ],
+              "personality": {
+                "effectiveRules": {
+                  "method": "wholeNameConsonantSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": 16,
+                "reducedValue": 7,
+                "root": 16,
+                "steps": [
+                  16,
+                  7
+                ],
+                "traceStatus": "included",
+                "value": 7
+              },
+              "soulUrge": {
+                "effectiveRules": {
+                  "method": "wholeNameVowelSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 2,
+                "root": 2,
+                "steps": [
+                  2
+                ],
+                "traceStatus": "included",
+                "value": 2
+              },
+              "subconsciousSelf": 4
+            },
+            "rationalThought": {
+              "nameSource": "selectedText",
+              "number": {
+                "effectiveRules": {
+                  "method": "rawNameScopeSumPlusBirthDay",
+                  "preserveMasterNumbers": [],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 2,
+                "traceStatus": "withheld",
+                "traceWithheldReason": "birthDateInference",
+                "value": 2
+              }
+            },
+            "reduction": "wholeNameSum",
+            "sources": [
+              {
+                "nameId": "n1",
+                "part": "given"
+              },
+              {
+                "nameId": "n2",
+                "part": "full"
+              }
+            ]
+          }
+        ],
+        "names": [
+          {
+            "id": "n1",
+            "numbers": {
+              "balance": {
+                "effectiveRules": {
+                  "method": "wordInitialLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 4,
+                "root": 4,
+                "steps": [
+                  4
+                ],
+                "traceStatus": "included",
+                "value": 4
+              },
+              "expression": {
+                "effectiveRules": {
+                  "method": "wholeNameLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": 14,
+                "reducedValue": 5,
+                "root": 14,
+                "steps": [
+                  14,
+                  5
+                ],
+                "traceStatus": "included",
+                "value": 5
+              },
+              "familyName": {
+                "effectiveRules": {
+                  "method": "familyPartLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 8,
+                "root": 8,
+                "steps": [
+                  8
+                ],
+                "traceStatus": "included",
+                "value": 8
+              },
+              "frequency": {
+                "1": 1,
+                "2": 0,
+                "3": 1,
+                "4": 0,
+                "5": 2,
+                "6": 0,
+                "7": 0,
+                "8": 0,
+                "9": 0
+              },
+              "givenName": {
+                "effectiveRules": {
+                  "method": "givenPartLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 6,
+                "root": 6,
+                "steps": [
+                  6
+                ],
+                "traceStatus": "included",
+                "value": 6
+              },
+              "hiddenPassion": [
+                5
+              ],
+              "missingNumbers": [
+                2,
+                4,
+                6,
+                7,
+                8,
+                9
+              ],
+              "personality": {
+                "effectiveRules": {
+                  "method": "wholeNameConsonantSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 8,
+                "root": 8,
+                "steps": [
+                  8
+                ],
+                "traceStatus": "included",
+                "value": 8
+              },
+              "soulUrge": {
+                "effectiveRules": {
+                  "method": "wholeNameVowelSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 6,
+                "root": 6,
+                "steps": [
+                  6
+                ],
+                "traceStatus": "included",
+                "value": 6
+              },
+              "subconsciousSelf": 3
+            },
+            "rationalThought": {
+              "nameSource": "given",
+              "number": {
+                "effectiveRules": {
+                  "method": "rawNameScopeSumPlusBirthDay",
+                  "preserveMasterNumbers": [],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 8,
+                "traceStatus": "withheld",
+                "traceWithheldReason": "birthDateInference",
+                "value": 8
+              }
+            },
+            "source": "profile.birthName"
+          },
+          {
+            "id": "n2",
+            "numbers": {
+              "balance": {
+                "effectiveRules": {
+                  "method": "wordInitialLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 4,
+                "root": 4,
+                "steps": [
+                  4
+                ],
+                "traceStatus": "included",
+                "value": 4
+              },
+              "expression": {
+                "effectiveRules": {
+                  "method": "wholeNameLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 3,
+                "root": 12,
+                "steps": [
+                  12,
+                  3
+                ],
+                "traceStatus": "included",
+                "value": 3
+              },
+              "familyName": {
+                "effectiveRules": {
+                  "method": "familyPartLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 0,
+                "root": 0,
+                "steps": [
+                  0
+                ],
+                "traceStatus": "included",
+                "value": 0
+              },
+              "frequency": {
+                "1": 1,
+                "2": 0,
+                "3": 0,
+                "4": 1,
+                "5": 0,
+                "6": 0,
+                "7": 1,
+                "8": 0,
+                "9": 0
+              },
+              "givenName": {
+                "effectiveRules": {
+                  "method": "givenPartLetterSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 3,
+                "root": 12,
+                "steps": [
+                  12,
+                  3
+                ],
+                "traceStatus": "included",
+                "value": 3
+              },
+              "hiddenPassion": [
+                1,
+                4,
+                7
+              ],
+              "missingNumbers": [
+                2,
+                3,
+                5,
+                6,
+                8,
+                9
+              ],
+              "personality": {
+                "effectiveRules": {
+                  "method": "wholeNameConsonantSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": true,
+                "karmicDebt": null,
+                "reducedValue": 2,
+                "root": 11,
+                "steps": [
+                  11
+                ],
+                "traceStatus": "included",
+                "value": 11
+              },
+              "soulUrge": {
+                "effectiveRules": {
+                  "method": "wholeNameVowelSum",
+                  "preserveMasterNumbers": [
+                    11,
+                    22,
+                    33
+                  ],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 1,
+                "root": 1,
+                "steps": [
+                  1
+                ],
+                "traceStatus": "included",
+                "value": 1
+              },
+              "subconsciousSelf": 3
+            },
+            "rationalThought": {
+              "nameSource": "given",
+              "number": {
+                "effectiveRules": {
+                  "method": "rawNameScopeSumPlusBirthDay",
+                  "preserveMasterNumbers": [],
+                  "reduction": "decimalDigitSum"
+                },
+                "isMaster": false,
+                "karmicDebt": null,
+                "reducedValue": 5,
+                "traceStatus": "withheld",
+                "traceWithheldReason": "birthDateInference",
+                "value": 5
+              }
+            },
+            "source": "input"
+          }
+        ],
+        "rulesVersion": "pythagorean-7mlabs-names-1.0"
+      },
+      "rationalThought": {
+        "nameSource": "birthName.given",
+        "number": {
+          "effectiveRules": {
+            "method": "rawNameScopeSumPlusBirthDay",
+            "preserveMasterNumbers": [],
+            "reduction": "decimalDigitSum"
+          },
+          "isMaster": false,
+          "karmicDebt": null,
+          "reducedValue": 8,
+          "traceStatus": "withheld",
+          "traceWithheldReason": "birthDateInference",
+          "value": 8
+        }
+      }
+    },
+    "name": {
+      "balance": {
+        "effectiveRules": {
+          "method": "wordInitialLetterSum",
+          "preserveMasterNumbers": [
+            11,
+            22,
+            33
+          ],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 4,
+        "root": 4,
+        "steps": [
+          4
+        ],
+        "traceStatus": "included",
+        "value": 4
+      },
+      "expression": {
+        "effectiveRules": {
+          "method": "wholeNameLetterSum",
+          "preserveMasterNumbers": [
+            11,
+            22,
+            33
+          ],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": 14,
+        "reducedValue": 5,
+        "root": 14,
+        "steps": [
+          14,
+          5
+        ],
+        "traceStatus": "included",
+        "value": 5
+      },
+      "familyName": {
+        "effectiveRules": {
+          "method": "familyPartLetterSum",
+          "preserveMasterNumbers": [
+            11,
+            22,
+            33
+          ],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 8,
+        "root": 8,
+        "steps": [
+          8
+        ],
+        "traceStatus": "included",
+        "value": 8
+      },
+      "frequency": {
+        "1": 1,
+        "2": 0,
+        "3": 1,
+        "4": 0,
+        "5": 2,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "givenName": {
+        "effectiveRules": {
+          "method": "givenPartLetterSum",
+          "preserveMasterNumbers": [
+            11,
+            22,
+            33
+          ],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 6,
+        "root": 6,
+        "steps": [
+          6
+        ],
+        "traceStatus": "included",
+        "value": 6
+      },
+      "hiddenPassion": [
+        5
+      ],
+      "missingNumbers": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        9
+      ],
+      "personality": {
+        "effectiveRules": {
+          "method": "wholeNameConsonantSum",
+          "preserveMasterNumbers": [
+            11,
+            22,
+            33
+          ],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 8,
+        "root": 8,
+        "steps": [
+          8
+        ],
+        "traceStatus": "included",
+        "value": 8
+      },
+      "soulUrge": {
+        "effectiveRules": {
+          "method": "wholeNameVowelSum",
+          "preserveMasterNumbers": [
+            11,
+            22,
+            33
+          ],
+          "reduction": "decimalDigitSum"
+        },
+        "isMaster": false,
+        "karmicDebt": null,
+        "reducedValue": 6,
+        "root": 6,
+        "steps": [
+          6
+        ],
+        "traceStatus": "included",
+        "value": 6
+      },
+      "subconsciousSelf": 3
+    }
+  },
+  "engineVersion": "1.1.0",
+  "extensions": {
+    "indicators": true,
+    "nameChallengesRulesVersion": "pythagorean-7mlabs-name-challenges-1.0",
+    "namesRulesVersion": "pythagorean-7mlabs-names-1.0",
+    "rulesVersion": "pythagorean-7mlabs-extensions-1.0"
+  },
+  "operation": "profile",
+  "options": {
+    "keepMasterNumbers": true,
+    "yRule": "contextual"
+  },
+  "outputPolicy": {
+    "anonymous": false,
+    "id": "filtered-1.0",
+    "omittedGroups": [
+      "nameTextAndLetters",
+      "callerIdentifiers",
+      "birthDateSourcesAndGrids",
+      "calendarYearOfAge",
+      "transitComponents"
+    ],
+    "referenceDateMayBeRecoverable": true,
+    "withheldTraceIndicators": [
+      "attitude",
+      "rationalThought"
+    ]
+  },
+  "rulesVersion": "pythagorean-7mlabs-1.0",
+  "schemaVersion": "filtered-1.0",
+  "system": "pythagorean",
+  "warnings": []
+}

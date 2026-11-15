@@ -22,5 +22,5 @@ if platform.system()=='Linux':
  wheel.unlink();shutil.copy2(fixed[0],OUT/fixed[0].name)
 subprocess.run(['dotnet','pack',str(ROOT/'bindings/dotnet/SevenMLabs.Numerology/SevenMLabs.Numerology.csproj'),'-c','Release','-o',str(OUT)],check=True)
 files=[p for p in OUT.iterdir() if p.is_file()]
-manifest={'version':'1.0.0','platform':platform.system(),'machine':platform.machine(),'candidateOnly':True,'artifacts':[{'name':p.name,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size} for p in sorted(files)]}
+manifest={'version':'1.1.0','platform':platform.system(),'machine':platform.machine(),'candidateOnly':True,'artifacts':[{'name':p.name,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size} for p in sorted(files)]}
 (OUT/'host-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n');print(json.dumps(manifest))

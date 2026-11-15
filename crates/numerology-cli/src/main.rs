@@ -9,5 +9,13 @@ fn main() {
         eprintln!("Unable to read input");
         std::process::exit(2)
     }
-    println!("{}", numerology_core::calculate_bytes(&input));
+    let filtered = std::env::args().skip(1).any(|arg| arg == "--filtered");
+    println!(
+        "{}",
+        if filtered {
+            numerology_core::calculate_filtered_bytes(&input)
+        } else {
+            numerology_core::calculate_bytes(&input)
+        }
+    );
 }

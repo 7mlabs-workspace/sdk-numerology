@@ -21,4 +21,4 @@ copy(lib,ROOT/"bindings/dotnet/SevenMLabs.Numerology/runtimes"/rid/"native"/lib.
 copy(ROOT/"target/release/sevenmlabs-numerology-cli",ROOT/"artifacts/native"/target/"numerology")
 for base in [ROOT/"bindings/node",ROOT/"bindings/python",ROOT/"bindings/python/sevenmlabs_numerology",ROOT/"bindings/dotnet/SevenMLabs.Numerology"]:
  for name in ["LICENSE","THIRD-PARTY-NOTICES.txt"]:copy(ROOT/name,base/name)
-print(json.dumps({"target":target,"rid":rid,"engineVersion":"1.0.0"}))
+print(json.dumps({"target":target,"rid":rid,"engineVersion":"1.1.0"}))

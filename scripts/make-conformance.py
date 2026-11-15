@@ -61,3 +61,10 @@ for request in requests:
  cases.append({"request":request,"expected":json.loads(p.stdout)})
 path=ROOT/'artifacts/conformance.json';path.parent.mkdir(exist_ok=True);path.write_text(json.dumps(cases,ensure_ascii=False,separators=(',',':')))
 print(json.dumps({"sharedCases":len(cases),"path":str(path)}))
+filtered=[]
+for request in requests:
+ p=subprocess.run([str(cli),'--filtered'],input=request,text=True,capture_output=True,check=True,timeout=3)
+ filtered.append({"request":request,"expected":json.loads(p.stdout)})
+filtered_path=ROOT/'artifacts/conformance-filtered.json'
+filtered_path.write_text(json.dumps(filtered,ensure_ascii=False,separators=(',',':')))
+print(json.dumps({"filteredSharedCases":len(filtered),"path":str(filtered_path)}))
