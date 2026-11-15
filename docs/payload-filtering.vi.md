@@ -8,7 +8,7 @@
 
 ## Chọn đầu ra phù hợp
 
-SDK 1.1.0 đang được chuẩn bị, chưa phát hành. Không đổi công thức hoặc chuẩn hóa tên Việt của 1.0.0.
+Tài liệu áp dụng cho SDK 1.1.0. Không đổi công thức hoặc chuẩn hóa tên Việt của 1.0.0.
 
 | API | Đầu ra | Tương thích |
 | --- | --- | --- |

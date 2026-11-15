@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.0 — Unreleased / Chưa phát hành
+## 1.1.0 — 2026-11-15
 
 - Thêm đầu ra `filtered-1.0` dùng chung từ Rust qua Node.js/TypeScript, Python, .NET, C ABI v1 và CLI `--filtered`; các hàm đầy đủ cũ giữ nguyên.
 - Giữ tổng gốc, từng bước rút gọn, master và số hiển thị rút gọn. Riêng Thái độ/Tư duy lược trace để chặn các đường suy ngược ngày sinh đã xác định; vẫn giữ kết quả.

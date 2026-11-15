@@ -39,7 +39,7 @@
 
 SDK thần số học Pythagorean do **7mlabs phát triển**, tính ngoại tuyến bằng một lõi Rust dùng chung cho Node.js/TypeScript, Python, .NET và giao diện C. Giấy phép MIT — Copyright (c) 2026 7mlabs.
 
-Phiên bản đang chuẩn bị: **1.1.0 — chưa phát hành**. Bản này gồm các chức năng nhiều tên và phần mở rộng tùy chọn mô tả bên dưới. Tệp gói chính thức và nền tảng native đã kiểm chứng được ghi trong bản kê phát hành. Đây là SDK độc lập với hợp đồng JSON riêng, không phải bản thay thế trực tiếp dịch vụ HTTP cũ. Phép tính chạy ngay trong tiến trình ứng dụng, không cần máy chủ engine hay Internet.
+Phiên bản SDK: **1.1.0**. Bản này gồm các chức năng nhiều tên và phần mở rộng tùy chọn mô tả bên dưới. Tệp gói chính thức và nền tảng native đã kiểm chứng được ghi trong bản kê phát hành. Đây là SDK độc lập với hợp đồng JSON riêng, không phải bản thay thế trực tiếp dịch vụ HTTP cũ. Phép tính chạy ngay trong tiến trình ứng dụng, không cần máy chủ engine hay Internet.
 
 <a id="features"></a>
 
@@ -62,7 +62,7 @@ Các phần mở rộng trong **1.0.0**, cần bật rõ: số rút gọn hiển
 
 Ưu tiên `calculateFiltered` cho tích hợp mới cần hạn chế dữ liệu nguồn. Hàm này giữ tổng gốc, bước rút gọn, master và số rút gọn của các chỉ số được phép xuất; Thái độ/Tư duy có ngoại lệ trace được ghi rõ. Các hàm `calculate` hiện tại vẫn trả payload đầy đủ như 1.0.0, có thể chứa tên và ngày sinh.
 
-[Xem chính sách từng trường, giới hạn và ví dụ](docs/payload-filtering.vi.md). Đầu ra có lọc **không phải dữ liệu ẩn danh**. Các ví dụ hàm mới bên dưới cần bản candidate 1.1.0 đã dựng; gói đang công khai chưa được thay đổi trong bước chuẩn bị này.
+[Xem chính sách từng trường, giới hạn và ví dụ](docs/payload-filtering.vi.md). Đầu ra có lọc **không phải dữ liệu ẩn danh**. Xem [so sánh 1.0.0 → 1.1.0 và hướng dẫn nâng cấp](docs/release-1.1.0.vi.md).
 
 ## Tài liệu tiếng Việt
 

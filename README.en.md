@@ -39,7 +39,7 @@
 
 Offline Pythagorean calculations from one Rust core, with Node.js/TypeScript, Python, .NET and C interfaces. MIT License — Copyright (c) 2026 7mlabs.
 
-SDK candidate: **1.1.0 — not published yet**. Registry availability and verified native targets are recorded in the release manifest. This is an independent SDK with a new JSON contract, not a drop-in replacement for the earlier HTTP service. It performs calculations directly inside the caller process, without an engine server or an Internet request.
+SDK version: **1.1.0**. Registry availability and verified native targets are recorded in the release manifest. This is an independent SDK with a new JSON contract, not a drop-in replacement for the earlier HTTP service. It performs calculations directly inside the caller process, without an engine server or an Internet request.
 
 <a id="features"></a>
 
@@ -71,7 +71,7 @@ The documentation explains the arithmetic without putting a textbook into every 
 
 Prefer `calculateFiltered` for new integrations that need less source data. It retains eligible raw totals, reduction steps, masters and single-digit display values, with explicit date-revealing trace exceptions for Attitude/Rational Thought. Existing `calculate` APIs still return full 1.0.0-compatible output, which can contain names and birth-date sources.
 
-[Field policy, limits and examples](docs/payload-filtering.md). Filtered output **is not anonymous**. New API examples below require a built 1.1.0 candidate; public registry packages have not been changed during candidate preparation.
+[Field policy, limits and examples](docs/payload-filtering.md). Filtered output **is not anonymous**. See the [1.0.0 → 1.1.0 comparison and upgrade guide](docs/release-1.1.0.md).
 
 ## From input to payload
 

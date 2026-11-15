@@ -26,7 +26,7 @@
 
 </details>
 
-Tài liệu mô tả **SDK 1.1.0 (candidate)**, gồm chức năng nhiều tên và phần mở rộng schema 1.1. Đối chiếu tệp gói với mã commit và mã SHA-256 trong bản kê phát hành. Xem [quy tắc chi tiết](rules.vi.md) để biết giới hạn đầu vào và trường hợp biên.
+Tài liệu mô tả **SDK 1.1.0**, gồm chức năng nhiều tên và phần mở rộng schema 1.1. Đối chiếu tệp gói với mã commit và mã SHA-256 trong bản kê phát hành. Xem [quy tắc chi tiết](rules.vi.md) để biết giới hạn đầu vào và trường hợp biên.
 
 <a id="doc-section-1"></a>
 

@@ -8,7 +8,7 @@
 
 ## Compatibility and scope
 
-Version 1.1.0 is a release candidate, not published yet. All existing full-output APIs retain their request grammar, arithmetic, schema and errors. Only `engineVersion` changes with the package version. Vietnamese normalization and Pythagorean rules are unchanged.
+This document applies to SDK 1.1.0. All existing full-output APIs retain their request grammar, arithmetic, schema and errors. Only `engineVersion` changes with the package version. Vietnamese normalization and Pythagorean rules are unchanged.
 
 New opt-in filtered APIs use the separate `filtered-1.0` schema and the same six operations. Existing extension switches still control which indicators are calculated. Every exported Number includes `reducedValue` even when `extensions.reducedValues=false`; that switch controls the full payload only.
 
